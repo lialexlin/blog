@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AI Software Investing
-date: 2025-11-30
+date: 2025-12-03
 ---
 
 # Objective of This Question List
@@ -102,6 +102,7 @@ date: 2025-11-30
 >- If inference costs fall rapidly, more autonomous multi-agent workflows become economical; if costs stall, autonomy remains limited and SaaS-embedded copilots dominate.
 
 ### 1.2 Fundamental Understanding
+
 7\. What is the fundamental difference between internet apps, SaaS, and AI apps? What are the differences in evaluating deals in these different sectors?
 > LL:
 >- Internet apps
@@ -151,20 +152,6 @@ date: 2025-11-30
 >	- Evaluation frameworks and quality control
 >	- Context assembly across varied enterprise data sources 
 
-|                                           | Description                                                                                                                                                                                                                           | How to achieve / what's missing                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Ingest goals and interpret user intent | Agents understand user intent more efficiently without the user providing a detailed plan. This includes agents understanding the user (what they do, what their preferences are) and the workflow (what the intended task could be). | Agents learn and store user preferences, frequent workflows, and commands over interactions. This could perhaps be solved by (1) LLMs having progressive learning capability, (2) agents autonomously maintaining very efficient documentation systems.                                                                                                                                                                                           |
-| 2. Gather and store context/state         | Get context efficiently for what's needed to complete the task. This could include context from the environment the agent is operating in and expand beyond that.                                                                     | Good system prompts that include progressive disclosure settings (e.g., Claude skills) of how to do things.                                                                                                                                                                                                                                                                                                                                       |
-| 3. Decompose tasks and generate a plan    | Agents efficiently break the task down into smaller parts and come up with a plan to complete it.                                                                                                                                     | 1. Currently this still require humans to handle, but various frontier models are already doing well (e.g. Claude Code's planning mode). We should have agents break down tasks into smaller parts in an agent-friendly manner to allow agents to handle them efficiently.<br>2. The master plan should be stored properly and shared with all agents in the loop.                                                                                |
-| 4. Execute plan in an iterative loop      | Agent executes according to plan. Decides what tools to use or even creates new tools on the fly, observes results, and updates plan iteratively.                                                                                     | 1. Should measure results by tasks per intervention—human intervention should be minimal.<br>2. Each agent (if not one master agent) should properly share context among themselves.<br>3. Should efficiently route requests to different models to ensure best quality output at lowest cost.<br>4. Should efficiently decide which tool to use and switch tools after observation.<br>5. Independent sub-tasks should be processed in parallel. |
-| 5. Self-evaluate and re-plan when needed  | After near-final result, agent should self-reflect on its work and update plan where needed.                                                                                                                                          | Reviewing agent should know what the ideal result for the task is, perhaps trained with benchmarks. Review the work and help modify the source prompt or give specific instructions on how to improve.                                                                                                                                                                                                                                            |
-
->- Interesting paths:
->	- Orchestrator: Dynamically designs workflows for various tasks, decides routing and tool use.
->	- Workflow manager: Has good context management to manage multiple agents.
->	- Review agent: How to grade output efficiently and provide feedback to planner on how to adjust the plan or tell orchestrator how to do it better.
->- I think the next billion-dollar idea is in the planning layer, which is the 'platform business' for AI. The orchestration agent has the power to decide which apps and tools to use, essentially the traffic gateway. 
-
 9\. How do you think about planning in agentic systems (e.g., CoT/ToT, ReAct, code-based planning, multi-agent setups), and what failure modes have you actually seen or worry most about?
 
 10\. What are the most important missing infrastructure pieces for agents (e.g., memory, eval, guardrails, orchestration, trust/safety, simulation), and which of these do you think are attractive for venture investment?
@@ -185,6 +172,7 @@ date: 2025-11-30
 11\. Will agentic systems start with niche applications, or will development happen directly on general use cases? What trends have you observed?
 
 ### 1.3 Evaluation and Hands-On Depth
+
 12\. How do you evaluate an AI product's performance in practice
 	- objective vs. subjective evals
 	- temporal consistency, robustness
@@ -209,6 +197,7 @@ date: 2025-11-30
 # 2. Business capability
 
 ### 2.1 Segment Focus
+
 15\. Given your endgame view and what’s technically hard vs. easy for LLMs, which categories of software are you most focused on investing in, and which “hot” areas are you intentionally avoiding? Why?
 > LL:
 >- Should focus:
@@ -223,6 +212,7 @@ date: 2025-11-30
 >	- LLM-easy tasks: Image/photo/content generation are examples. These high-TAM, LLM-easy tasks are going to be captured by model providers. Google's NotebookLM and Nano Banana recent updates are crushing Gamma for slide generation and other image-generating apps.
 
 ### 2.2 Ideal Team Profile
+
 16\. What are the non-negotiable characteristics of an AI founding team, and how do you practically test for them?
 > LL: The team should have both strong technical capability (so they can adapt to model changes and iterate very quickly) and product management experience (so they can build apps that actually solve problems with good user experience).
 
@@ -234,6 +224,7 @@ date: 2025-11-30
 19\. What are the biggest red flags in AI founders or "AI products" that non-technical or generalist VCs often miss?
 
 ### 2.3 Economics in AI Era
+
 20\. How will open source model providers monetize?
 
 21\. SaaS pricing (per seat) is dying for AI. Do you believe in 'consumption-based' (tokens) or 'outcome-based' (dollars per task)? How do we underwrite the quality and durability of that 'outcome-based' revenue?
@@ -243,6 +234,7 @@ date: 2025-11-30
 23\. In a world where core model intelligence becomes cheaper and more available, what do you believe becomes the most important driver of long-term value (distribution, proprietary data, workflow lock-in, something else)?
 
 ### 2.4 Investment Strategy
+
 24\. At which stage (seed, A, growth) do you think the risk/reward is best for AI software, and how does that shape your fund's strategy?
 
 25\. How do you underwrite a company at early stage / growth stage?
