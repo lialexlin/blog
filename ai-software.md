@@ -8,6 +8,8 @@ date: 2025-12-03
 - List all the key questions we need to ask to develop a deep understanding of AI investing. What do we know so far, and what gaps remain?
 - The list should be updated dynamically—we should update our views after insightful discussions with GPs and founders.
 - The list serves as a qualitative measurement of a VC's technical depth (how well they understand the technology) and business capability (how good they are at finding and investing in good deals).
+  ![](image/Pasted%20image%2020251203181125.png)
+  
 
 # 1. Technical depth
 
