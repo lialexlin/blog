@@ -3,7 +3,6 @@ layout: post
 title: AI Software Investing
 date: 2025-12-03
 ---
-
 # Objective of This Question List
 - List all the key questions we need to ask to develop a deep understanding of AI investing. What do we know so far, and what gaps remain?
 - The list should be updated dynamically—we should update our views after insightful discussions with GPs and founders.
@@ -178,7 +177,7 @@ date: 2025-12-03
 12\. How do you evaluate an AI product's performance in practice
 	- objective vs. subjective evals
 	- temporal consistency, robustness
-	- “real” data advantage vs. storytelling)
+	- “real” data advantage vs. storytelling
 > LL: There are objective vs. subjective evals.
 >- Objective means code-checkable, right vs. wrong (correct answer, correct SQL, etc.). Objective eval is easier because we just need a sample and correct-answer checking.
 >- Subjective means something that can be graded (e.g., a deal memo). Subjective eval is harder because it's difficult to score accurately.
@@ -212,6 +211,7 @@ date: 2025-12-03
 >- Should avoid:
 >	- General agents: Model providers will push hard to become general agents themselves. The problem with general agents is that they're good at delivering say 80%, but that's not good enough. They will be disrupted by (1) vertical/niche agents that can complete tasks efficiently most of the time, (2) orchestrating agents (e.g., embedded in OS).
 >	- LLM-easy tasks: Image/photo/content generation are examples. These high-TAM, LLM-easy tasks are going to be captured by model providers. Google's NotebookLM and Nano Banana recent updates are crushing Gamma for slide generation and other image-generating apps.
+>	  ![](image/Pasted%20image%2020251127175604.png)
 
 ### 2.2 Ideal Team Profile
 

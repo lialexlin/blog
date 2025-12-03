@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b1f4fe2467dd5502",
+        "id": "63c7b5d1b8ba25f8",
         "type": "tabs",
         "children": [
           {
-            "id": "528addeaea48c690",
+            "id": "fd6c3c41415769dd",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "index.html",
-                "bFile": "index.html",
-                "aRef": ""
+                "file": "ai-software.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: index.html"
+              "icon": "lucide-file",
+              "title": "ai-software"
             }
           }
         ]
@@ -157,12 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "ai-software.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of ai-software"
             }
           },
           {
@@ -176,7 +177,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -194,8 +195,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "528addeaea48c690",
+  "active": "65f3ab4fd88b7123",
   "lastOpenFiles": [
+    "image/Pasted image 20251127175604.png",
     "ai-software.md",
     "image/Pasted image 20251203181125.png"
   ]
