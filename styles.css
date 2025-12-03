@@ -133,6 +133,11 @@ a:hover {
   margin: 1.5rem 0;
 }
 
+.article-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 .article-content strong {
   font-weight: 600;
 }
