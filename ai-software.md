@@ -41,6 +41,7 @@ date: 2025-11-30
 >- Overall user experience
 >	- Users continue to open individual apps for certain workflows, but a growing portion of work is delegated: declare intent → agent plans → agents execute → user reviews → agent refines.
 >	- The cognitive load shifts from “how to do the task” to “what outcome is desired”.
+>	![](image/Pasted%20image%2020251125174904.png)
 
 2\. What are the strongest reasons your endgame might not happen? Separate technical, economic, regulatory, and user-behavior constraints.
 > LL: 
