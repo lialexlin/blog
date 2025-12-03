@@ -10,21 +10,20 @@
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 </head>
 <body>
+  <nav id="toc" class="toc">
+    <div class="toc-title">Contents</div>
+    <ul></ul>
+  </nav>
+
   <main>
     <a href="{{ '/' | relative_url }}" class="back-link">Back to writings</a>
-    <div class="article-wrapper">
-      <article>
-        <h1>{{ page.title }}</h1>
-        <div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>
-        <div class="article-content">
-          {{ content }}
-        </div>
-      </article>
-      <nav id="toc" class="toc">
-        <div class="toc-title">Contents</div>
-        <ul></ul>
-      </nav>
-    </div>
+    <article>
+      <h1>{{ page.title }}</h1>
+      <div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+      <div class="article-content">
+        {{ content }}
+      </div>
+    </article>
   </main>
 
   <script>
@@ -38,9 +37,12 @@
         return;
       }
 
+      const headingsList = [];
+
       headings.forEach((heading, index) => {
         const id = heading.id || 'heading-' + index;
         heading.id = id;
+        headingsList.push({ id, element: heading });
 
         const li = document.createElement('li');
         li.className = 'toc-' + heading.tagName.toLowerCase();
@@ -53,20 +55,23 @@
         toc.appendChild(li);
       });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const id = entry.target.id;
-          const tocLink = document.querySelector(`#toc a[href="#${id}"]`);
-          if (tocLink) {
-            if (entry.isIntersecting) {
-              document.querySelectorAll('#toc a').forEach(a => a.classList.remove('active'));
-              tocLink.classList.add('active');
-            }
-          }
-        });
-      }, { rootMargin: '-20% 0px -80% 0px' });
+      function updateActiveHeading() {
+        const scrollPos = window.scrollY + 100;
+        let currentId = headingsList[0]?.id;
 
-      headings.forEach(heading => observer.observe(heading));
+        for (const { id, element } of headingsList) {
+          if (element.offsetTop <= scrollPos) {
+            currentId = id;
+          }
+        }
+
+        document.querySelectorAll('#toc a').forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveHeading);
+      updateActiveHeading();
     });
   </script>
 </body>
