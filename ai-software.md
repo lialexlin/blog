@@ -10,6 +10,7 @@ date: 2025-11-30
 - The list serves as a qualitative measurement of a VC's technical depth (how well they understand the technology) and business capability (how good they are at finding and investing in good deals).
 
 # 1. Technical depth
+
 ### 1.1 AI Endgame & Architectural Understanding
 
 1\. In your view, how will a user interact with software in 5–10 years, and what does the underlying stack look like (interface → orchestrator → planning → tools/agents → apps)?
@@ -57,6 +58,7 @@ date: 2025-11-30
 >	- In high-stakes domains (legal, medical, finance), organizations may enforce “human-in-the-loop” as mandatory.
 >	- Users may prefer predictable workflows over opaque agents, slowing adoption of end-to-end automation.
 >- If these constraints persist, the ecosystem skews toward powerful embedded copilots inside existing SaaS/OS platforms rather than fully autonomous cross-app agents.
+
 3\. What capabilities do frontier models still need to reach for that endgame to work (e.g., reliability, planning, long-term memory, tool use, continuous learning)? Which of these do you think are solvable vs. structural bottlenecks?
 > LL: 
 >- Reliability on known tasks: Solvable. Improvements in model architecture, distillation, structured guardrails, and filtered training data should reduce variance and increase predictability.
@@ -66,6 +68,7 @@ date: 2025-11-30
 >- Continuous or “nested” learning: Uncertain. Conceptually powerful but challenging due to safety, drift, and eval overhead. Production systems will likely rely on periodic controlled fine-tuning rather than unrestricted online learning.
 >- Interpretability and safety: Structural bottleneck. Incremental improvements are expected, but full transparency into model behavior is unlikely. This limits adoption in high-stakes environments and slows autonomy.
 >- Overall, reliability and tool use trend toward solvability; long-term memory, continuous learning, and interpretability remain structural bottlenecks shaping the ceiling of agent autonomy.
+
 4\. Who owns the "state" of the user? Is it the Model Provider (OpenAI knows my chat history), the OS (Apple knows my screen), or the Vertical App (Trip knows my hotels)? Who wins the right to context and routing?
 > LL: 
 >- OS and productivity suites (Microsoft 365, Google Workspace, Apple ecosystem)
@@ -90,11 +93,15 @@ date: 2025-11-30
 >	- Vertical applications where correctness, integration, compliance, and workflow depth matter. Defensibility comes from proprietary data, domain knowledge, and operational embedding, not the model itself.
 >	- Systems that accumulate proprietary structured data and user feedback loops, enabling continuous improvement in specific high-value domains.
 >	- Potentially, orchestration/planning platforms that become embedded in enterprise workflows. This layer has high upside but is strategically contested by OS vendors, SaaS ecosystems, and cloud providers.
+
 6\. How fast do you expect inference costs to drop? 
 >- 2×–5× reductions are likely in the near term through hardware efficiency, quantization, and batching.
 >- 10×+ reductions are possible but dependent on breakthroughs in model architecture, compilation, and edge acceleration.
 >- Agentic workflows consume significantly more compute than single-model inference; cost declines do not translate linearly to cheaper workflows.
 >- If inference costs fall rapidly, more autonomous multi-agent workflows become economical; if costs stall, autonomy remains limited and SaaS-embedded copilots dominate.
+
+---
+
 ### 1.2 Fundamental Understanding
 7\. What is the fundamental difference between internet apps, SaaS, and AI apps? What are the differences in evaluating deals in these different sectors?
 > LL:
@@ -122,6 +129,7 @@ date: 2025-11-30
 >		- workflow lock-in
 >		- integration depth
 >		- domain-specific correctness loops
+
 8\. Decompose a modern agentic system into major steps (intent, context, planning, tool selection, execution, evaluation, memory). Where are the biggest technical gaps today?
 >- Intent understanding: What the user actually wants.
 >  Gaps: long instructions still needed; models struggle with ambiguous intents; weak adaptation to individual preferences.
@@ -151,15 +159,15 @@ date: 2025-11-30
 | 3. Decompose tasks and generate a plan    | Agents efficiently break the task down into smaller parts and come up with a plan to complete it.                                                                                                                                     | 1. Currently this still require humans to handle, but various frontier models are already doing well (e.g. Claude Code's planning mode). We should have agents break down tasks into smaller parts in an agent-friendly manner to allow agents to handle them efficiently.<br>2. The master plan should be stored properly and shared with all agents in the loop.                                                                                |
 | 4. Execute plan in an iterative loop      | Agent executes according to plan. Decides what tools to use or even creates new tools on the fly, observes results, and updates plan iteratively.                                                                                     | 1. Should measure results by tasks per intervention—human intervention should be minimal.<br>2. Each agent (if not one master agent) should properly share context among themselves.<br>3. Should efficiently route requests to different models to ensure best quality output at lowest cost.<br>4. Should efficiently decide which tool to use and switch tools after observation.<br>5. Independent sub-tasks should be processed in parallel. |
 | 5. Self-evaluate and re-plan when needed  | After near-final result, agent should self-reflect on its work and update plan where needed.                                                                                                                                          | Reviewing agent should know what the ideal result for the task is, perhaps trained with benchmarks. Review the work and help modify the source prompt or give specific instructions on how to improve.                                                                                                                                                                                                                                            |
-|                                           |                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                                           |                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 >- Interesting paths:
 >	- Orchestrator: Dynamically designs workflows for various tasks, decides routing and tool use.
 >	- Workflow manager: Has good context management to manage multiple agents.
 >	- Review agent: How to grade output efficiently and provide feedback to planner on how to adjust the plan or tell orchestrator how to do it better.
 >- I think the next billion-dollar idea is in the planning layer, which is the 'platform business' for AI. The orchestration agent has the power to decide which apps and tools to use, essentially the traffic gateway. 
+
 9\. How do you think about planning in agentic systems (e.g., CoT/ToT, ReAct, code-based planning, multi-agent setups), and what failure modes have you actually seen or worry most about?
+
 10\. What are the most important missing infrastructure pieces for agents (e.g., memory, eval, guardrails, orchestration, trust/safety, simulation), and which of these do you think are attractive for venture investment?
 > LL: 
 >- Model performance is good enough today. Generally, if users know the right prompts and the most robust best practices, model performance is quite good. 
@@ -174,7 +182,9 @@ date: 2025-11-30
 > - Agentic context sharing and communication: How LLMs communicate with each other and with apps is very important. Anthropic has done a great job defining some industry standards, e.g., MCP—very clever ways of telling agents what to do, when to do it, and how to do it. But it's still not at a level where apps and agents can speak with each other and collaborate on tasks efficiently. Dominant app players are definitely reluctant to embrace this infrastructure, as their platform dominance will be diluted by LLMs, since orchestration agents will decide which app gets called to execute tasks going forward. But whoever is reluctant to evolve will be replaced by agent-native products.
 > - Modality: Text-based interaction is highly inefficient. Going forward, we should be able to prompt with speech (already many breakthroughs) and camera.
 > - Agentic coding: Although agentic coding tools (like Cursor, Claude Code) are already very good at generating code, there are still significant pain points in how to manage the codebase to keep it clean and scalable, as well as deployment.
+
 11\. Will agentic systems start with niche applications, or will development happen directly on general use cases? What trends have you observed?
+
 ### 1.3 Evaluation and Hands-On Depth
 12\. How do you evaluate an AI product's performance in practice
 	- objective vs. subjective evals
@@ -183,6 +193,7 @@ date: 2025-11-30
 > LL: There are objective vs. subjective evals.
 >- Objective means code-checkable, right vs. wrong (correct answer, correct SQL, etc.). Objective eval is easier because we just need a sample and correct-answer checking.
 >- Subjective means something that can be graded (e.g., a deal memo). Subjective eval is harder because it's difficult to score accurately.
+
 13\. What models, tools, or agents do you personally use day-to-day, and what recent experiment has materially changed how you work?
 > LL:
 > - Project management: Notion (superior visualization)
@@ -191,12 +202,14 @@ date: 2025-11-30
 > - General knowledge queries: GPT-5.1 + Gemini 3 Pro
 > - Learning: NotebookLM + Obsidian + Excalidraw
 > - Search for nuanced info: Perplexity
+
 14\. What's the most recent LLM/agent paper or technical resource you read that changed your thinking, and how did it change your view?
+
 ---
+
 # 2. Business capability
 
 ### 2.1 Segment Focus
-
 15\. Given your endgame view and what’s technically hard vs. easy for LLMs, which categories of software are you most focused on investing in, and which “hot” areas are you intentionally avoiding? Why?
 > LL:
 >- Should focus:
@@ -208,24 +221,36 @@ date: 2025-11-30
 >	- As well as the agentic workflow infrastructure that is still missing as 
 >- Should avoid:
 >	- General agents: Model providers will push hard to become general agents themselves. The problem with general agents is that they're good at delivering say 80%, but that's not good enough. They will be disrupted by (1) vertical/niche agents that can complete tasks efficiently most of the time, (2) orchestrating agents (e.g., embedded in OS).
->	- LLM-easy tasks: Image/photo/content generation are examples. These high-TAM, LLM-easy tasks are going to be captured by model providers. Google's NotebookLM and Nano Banana recent updates are crushing Gamma for slide generation and other image-generating apps. 
+>	- LLM-easy tasks: Image/photo/content generation are examples. These high-TAM, LLM-easy tasks are going to be captured by model providers. Google's NotebookLM and Nano Banana recent updates are crushing Gamma for slide generation and other image-generating apps.
+
 ### 2.2 Ideal Team Profile
 16\. What are the non-negotiable characteristics of an AI founding team, and how do you practically test for them?
 > LL: The team should have both strong technical capability (so they can adapt to model changes and iterate very quickly) and product management experience (so they can build apps that actually solve problems with good user experience).
+
 17\. How do you assess whether a founder and team can survive rapid changes in the model/provider landscape over the next 5–10 years?
 > LL: The founder doesn't necessarily need ML experience, but must have a strong fundamental understanding of how LLMs work and scientific research capability so they know how to build products on top of them.
+
 18\. Would you prefer AI-native startups or incumbent fast-learners adding AI?
-19\. What are the biggest red flags in AI founders or “AI products” that non-technical or generalist VCs often miss?
+
+19\. What are the biggest red flags in AI founders or "AI products" that non-technical or generalist VCs often miss?
+
 ### 2.3 Economics in AI Era
-20\. How will open source model providers monetize? 
+20\. How will open source model providers monetize?
+
 21\. SaaS pricing (per seat) is dying for AI. Do you believe in 'consumption-based' (tokens) or 'outcome-based' (dollars per task)? How do we underwrite the quality and durability of that 'outcome-based' revenue?
-22\. What is the current gross margin level of applications? What do you expect the future trend to be? 
+
+22\. What is the current gross margin level of applications? What do you expect the future trend to be?
+
 23\. In a world where core model intelligence becomes cheaper and more available, what do you believe becomes the most important driver of long-term value (distribution, proprietary data, workflow lock-in, something else)?
+
 ### 2.4 Investment Strategy
-24\. At which stage (seed, A, growth) do you think the risk/reward is best for AI software, and how does that shape your fund’s strategy?
+24\. At which stage (seed, A, growth) do you think the risk/reward is best for AI software, and how does that shape your fund's strategy?
+
 25\. How do you underwrite a company at early stage / growth stage?
 > LL: Need deep understanding to (1) evaluate how quickly the startup can adapt and iterate, (2) what is defensible vs. not, and (3) what larger TAM use cases exist.
+
 26\. What's your exit strategy? Have there been any examples of M&A or secondary transactions of AI startups?
 > LL: No one knows how to exit AI apps (yet), and it's very hard to gauge the upside. Better to take money off the table aggressively.
-27\. Walk me through your process for evaluating an AI deal from first meeting to conviction: what do you do differently from a generalist VC, especially around technical diligence and “fast no’s”?
+
+27\. Walk me through your process for evaluating an AI deal from first meeting to conviction: what do you do differently from a generalist VC, especially around technical diligence and "fast no's"?
 
