@@ -12,13 +12,62 @@
 <body>
   <main>
     <a href="{{ '/' | relative_url }}" class="back-link">Back to writings</a>
-    <article>
-      <h1>{{ page.title }}</h1>
-      <div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>
-      <div class="article-content">
-        {{ content }}
-      </div>
-    </article>
+    <div class="article-wrapper">
+      <article>
+        <h1>{{ page.title }}</h1>
+        <div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+        <div class="article-content">
+          {{ content }}
+        </div>
+      </article>
+      <nav id="toc" class="toc">
+        <div class="toc-title">Contents</div>
+        <ul></ul>
+      </nav>
+    </div>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const content = document.querySelector('.article-content');
+      const toc = document.querySelector('#toc ul');
+      const headings = content.querySelectorAll('h1, h2, h3');
+
+      if (headings.length === 0) {
+        document.getElementById('toc').style.display = 'none';
+        return;
+      }
+
+      headings.forEach((heading, index) => {
+        const id = heading.id || 'heading-' + index;
+        heading.id = id;
+
+        const li = document.createElement('li');
+        li.className = 'toc-' + heading.tagName.toLowerCase();
+
+        const a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = heading.textContent;
+
+        li.appendChild(a);
+        toc.appendChild(li);
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = entry.target.id;
+          const tocLink = document.querySelector(`#toc a[href="#${id}"]`);
+          if (tocLink) {
+            if (entry.isIntersecting) {
+              document.querySelectorAll('#toc a').forEach(a => a.classList.remove('active'));
+              tocLink.classList.add('active');
+            }
+          }
+        });
+      }, { rootMargin: '-20% 0px -80% 0px' });
+
+      headings.forEach(heading => observer.observe(heading));
+    });
+  </script>
 </body>
 </html>

@@ -101,8 +101,6 @@ date: 2025-11-30
 >- Agentic workflows consume significantly more compute than single-model inference; cost declines do not translate linearly to cheaper workflows.
 >- If inference costs fall rapidly, more autonomous multi-agent workflows become economical; if costs stall, autonomy remains limited and SaaS-embedded copilots dominate.
 
----
-
 ### 1.2 Fundamental Understanding
 7\. What is the fundamental difference between internet apps, SaaS, and AI apps? What are the differences in evaluating deals in these different sectors?
 > LL:
