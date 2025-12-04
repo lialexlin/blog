@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "200df1ecf3d149f2",
@@ -177,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -195,7 +194,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "65f3ab4fd88b7123",
+  "active": "cc73cc98820eaff1",
   "lastOpenFiles": [
     "image/Pasted image 20251127175604.png",
     "ai-software.md",
