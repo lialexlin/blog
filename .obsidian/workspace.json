@@ -11,14 +11,12 @@
             "id": "fd6c3c41415769dd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "ai-software.md",
-                "mode": "source",
-                "source": false
+                "file": "image/Pasted image 20251127175604.png"
               },
-              "icon": "lucide-file",
-              "title": "ai-software"
+              "icon": "lucide-image",
+              "title": "Pasted image 20251127175604"
             }
           }
         ]
@@ -194,10 +192,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cc73cc98820eaff1",
+  "active": "fd6c3c41415769dd",
   "lastOpenFiles": [
+    "image/Pasted image 20251203181125.png",
     "image/Pasted image 20251127175604.png",
-    "ai-software.md",
-    "image/Pasted image 20251203181125.png"
+    "README.md",
+    "image/Pasted image 20251127175604 1.png",
+    "image/Pasted image 20251125174904.png",
+    "ai-software.md"
   ]
 }
