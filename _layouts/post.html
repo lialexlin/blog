@@ -11,7 +11,6 @@
 </head>
 <body>
   <nav id="toc" class="toc">
-    <div class="toc-title">Contents</div>
     <ul></ul>
   </nav>
 
@@ -72,6 +71,20 @@
 
       window.addEventListener('scroll', updateActiveHeading);
       updateActiveHeading();
+
+      // Highlight heading when TOC link is clicked
+      document.querySelectorAll('#toc a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href').slice(1);
+          const targetHeading = document.getElementById(targetId);
+          if (targetHeading) {
+            targetHeading.classList.add('heading-highlight');
+            setTimeout(() => {
+              targetHeading.classList.remove('heading-highlight');
+            }, 1500);
+          }
+        });
+      });
     });
   </script>
 </body>
