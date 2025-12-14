@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AI Software Investing
+title: AI Software Questions
 date: 2025-12-03
 ---
 # Objective of This Question List
