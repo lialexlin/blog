@@ -60,7 +60,7 @@ main {
   color: #666;
   text-decoration: none;
   display: block;
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.5rem;
   transition: color 0.2s ease-out, background 0.2s ease-out;
 }
 
@@ -72,7 +72,6 @@ main {
 
 .toc a.active {
   color: #0a0a0a;
-  font-weight: 500;
   background: rgba(0, 0, 0, 0.05);
 }
 
