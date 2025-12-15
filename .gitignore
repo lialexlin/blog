@@ -22,3 +22,6 @@ vendor/
 
 # Local env
 .env
+
+# Obsidian (machine-specific, not content)
+.obsidian/workspace.json
