@@ -29,9 +29,9 @@ main {
 /* Table of Contents */
 .toc {
   position: fixed;
-  right: calc((100vw - 900px) / 2 - 240px);
+  right: calc((100vw - 900px) / 2 - 260px);
   top: 4rem;
-  width: 200px;
+  width: 220px;
   max-height: calc(100vh - 6rem);
   overflow-y: auto;
 }
@@ -60,7 +60,7 @@ main {
   color: #666;
   text-decoration: none;
   display: block;
-  padding: 0.4rem 0.5rem;
+  padding: 0.4rem 1rem 0.4rem 0.5rem;
   transition: color 0.2s ease-out, background 0.2s ease-out;
 }
 
@@ -72,6 +72,7 @@ main {
 
 .toc a.active {
   color: #0a0a0a;
+  font-weight: 500;
   background: rgba(0, 0, 0, 0.05);
 }
 
