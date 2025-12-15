@@ -60,10 +60,8 @@ main {
   color: #666;
   text-decoration: none;
   display: block;
-  padding: 0.25rem 0;
-  border-left: 2px solid transparent;
-  padding-left: 0.75rem;
-  transition: color 0.2s ease-out, border-color 0.2s ease-out, background 0.2s ease-out;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s ease-out, background 0.2s ease-out;
 }
 
 .toc a:hover {
@@ -75,15 +73,15 @@ main {
 .toc a.active {
   color: #0a0a0a;
   font-weight: 500;
-  border-left-color: #1a1a1a;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .toc .toc-h2 a {
-  padding-left: 1.25rem;
+  padding-left: 1rem;
 }
 
 .toc .toc-h3 a {
-  padding-left: 1.75rem;
+  padding-left: 1.5rem;
   font-size: 0.8rem;
 }
 
@@ -98,7 +96,7 @@ h1, h2, h3 {
 }
 
 @keyframes highlight-fade {
-  0% { background: rgba(255, 220, 100, 0.5); }
+  0% { background: rgba(0, 0, 0, 0.08); }
   100% { background: transparent; }
 }
 
