@@ -11,14 +11,12 @@
             "id": "fd6c3c41415769dd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "ai-software-questions.md",
-                "mode": "source",
-                "source": false
+                "file": "image/Pasted image 20251125174904.png"
               },
-              "icon": "lucide-file",
-              "title": "ai-software-questions"
+              "icon": "lucide-image",
+              "title": "Pasted image 20251125174904"
             }
           }
         ]
@@ -196,17 +194,19 @@
   },
   "active": "5292aac23492e5bf",
   "lastOpenFiles": [
-    "ai-software-questions 1.md",
+    "book-of-the-year-the-almanack-of-naval-ravikant.md",
+    "Book of the year - The Almanack of Naval Ravikant.md",
+    "image/Pasted image 20251203181125.png",
+    "image/Pasted image 20251127175604.png",
+    "image/Pasted image 20251125174904.png",
     "ai-software-questions.md",
+    "ai-software-questions 1.md",
     "ai-software-questions.md.tmp.40848.1765853207311",
     "ai-software-questions.md.tmp.40848.1765853128516",
     "ai-software-questions.md.tmp.40848.1765852916285",
     "what-crypto-taught-me.md",
-    "image/Pasted image 20251127175604.png",
-    "image/Pasted image 20251203181125.png",
     "README.md",
     "image/Pasted image 20251127175604 1.png",
-    "image/Pasted image 20251125174904.png",
     "ai-software.md"
   ]
 }
