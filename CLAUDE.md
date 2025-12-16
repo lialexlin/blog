@@ -15,7 +15,7 @@ A minimalist personal blog built with Jekyll, deployed to GitHub Pages at `https
 
 ## Adding New Articles
 
-1. Create `article-name.md` at repository root
+1. Create `article-name.md` at repository root using **kebab-case** (e.g., `book-of-the-year-naval-ravikant.md`). The filename becomes the URL slug.
 2. Add frontmatter:
    ```yaml
    ---
