@@ -19,8 +19,6 @@ Over the next 1-2 years, I spent a lot of time understanding the fundamental tec
 
 I did everything I thought I was supposed to do. It didn't matter.
 
-Of the 3 major investments I made in crypto, I only got back cost on one of them (the 25x one, more on that later), one is almost written off, and the last one I think will be hard to get back cost on.
-
 There were a few mistakes that fundamentally changed how I think and behave. 
 
 ### Early success doesn't always repeat

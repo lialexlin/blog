@@ -3,19 +3,15 @@ layout: post
 title: AI Software Questions
 date: 2025-12-03
 ---
-# Objective of This Question List
-- List all the key questions we need to ask to develop a deep understanding of AI investing. What do we know so far, and what gaps remain?
-- The list should be updated dynamically—we should update our views after insightful discussions with GPs and founders.
-- The list serves as a qualitative measurement of a VC's technical depth (how well they understand the technology) and business capability (how good they are at finding and investing in good deals).
-  ![](image/Pasted%20image%2020251203181125.png)
-  
+# What This Document Is
+
+A working list of questions I'm asking myself to develop a clearer view on AI investing. For each question, I document my current thinking—not as final answers, but as positions to stress-test and update as the space evolves.
 
 # 1. Technical depth
 
 ### 1.1 AI Endgame & Architectural Understanding
 
-1\. In your view, how will a user interact with software in 5–10 years, and what does the underlying stack look like (interface → orchestrator → planning → tools/agents → apps)?
-> LL:
+1\. How will a user interact with software in 5–10 years, and what does the underlying stack look like (interface → orchestrator → planning → tools/agents → apps)?
 >- User interaction
 >	- Primary interfaces shift toward multimodal inputs: speech, text, camera/video, and contextual signals from the environment.
 >	- Traditional GUI remains, but most workflows begin with natural-language intent (“prepare the board pack”, “analyze this dataset”, “draft a contract consistent with our past versions”).
@@ -44,8 +40,7 @@ date: 2025-12-03
 >	- The cognitive load shifts from “how to do the task” to “what outcome is desired”.
 >	![](image/Pasted%20image%2020251125174904.png)
 
-2\. What are the strongest reasons your endgame might not happen? Separate technical, economic, regulatory, and user-behavior constraints.
-> LL: 
+2\. What are the strongest reasons this endgame might not happen? Separate technical, economic, regulatory, and user-behavior constraints. 
 >- Technical constraints
 >	- Planning, long-horizon reliability, and error recovery may plateau. LLMs may excel at short tasks but remain brittle on complex workflows.
 >	- Safe continuous learning and long-term personalization remain unsolved; without them, agents stay stateless or require heavy human configuration.
@@ -61,8 +56,7 @@ date: 2025-12-03
 >	- Users may prefer predictable workflows over opaque agents, slowing adoption of end-to-end automation.
 >- If these constraints persist, the ecosystem skews toward powerful embedded copilots inside existing SaaS/OS platforms rather than fully autonomous cross-app agents.
 
-3\. What capabilities do frontier models still need to reach for that endgame to work (e.g., reliability, planning, long-term memory, tool use, continuous learning)? Which of these do you think are solvable vs. structural bottlenecks?
-> LL: 
+3\. What capabilities do frontier models still need to reach for that endgame to work (e.g., reliability, planning, long-term memory, tool use, continuous learning)? Which are solvable vs. structural bottlenecks? 
 >- Reliability on known tasks: Solvable. Improvements in model architecture, distillation, structured guardrails, and filtered training data should reduce variance and increase predictability.
 >- Planning and long-horizon reasoning: Partially solvable. Pure LLM planning is unlikely to achieve high reliability; real progress depends on hybrid systems combining LLMs with structured planners, code execution, and explicit task graphs.
 >- Tool-use robustness: Solvable with better schemas, validation layers, and more consistent API abstractions. This is primarily an engineering problem rather than a fundamental research barrier.
@@ -71,8 +65,7 @@ date: 2025-12-03
 >- Interpretability and safety: Structural bottleneck. Incremental improvements are expected, but full transparency into model behavior is unlikely. This limits adoption in high-stakes environments and slows autonomy.
 >- Overall, reliability and tool use trend toward solvability; long-term memory, continuous learning, and interpretability remain structural bottlenecks shaping the ceiling of agent autonomy.
 
-4\. Who owns the "state" of the user? Is it the Model Provider (OpenAI knows my chat history), the OS (Apple knows my screen), or the Vertical App (Trip knows my hotels)? Who wins the right to context and routing?
-> LL: 
+4\. Who owns the "state" of the user? Is it the Model Provider (OpenAI knows my chat history), the OS (Apple knows my screen), or the Vertical App (Trip knows my hotels)? Who wins the right to context and routing? 
 >- OS and productivity suites (Microsoft 365, Google Workspace, Apple ecosystem)
 >  Own global state: identity, device context, files, email, search, calendar, and what is on screen. This gives them a structural advantage in routing and context assembly. 
 >- Vertical applications (CRM, ERP, developer tools, design systems, healthcare systems)
@@ -86,8 +79,7 @@ date: 2025-12-03
 >	- Vertical systems dominate routing inside their own domains.
 >	- Model providers win routing only where they control the full user experience.
 
-5\. In that endgame, which layers do you think _become commoditized_ vs. _remain defensible_? 
-> LL: 
+5\. In that endgame, which layers _become commoditized_ vs. _remain defensible_? 
 >- Commoditizing layers
 >	- Mid-tier models and generic inference APIs, driven by open source competition and scale economics.
 >	- Thin “wrapper” applications that simply provide UI over a frontier model without workflow integration, proprietary data, or domain logic.
@@ -96,7 +88,7 @@ date: 2025-12-03
 >	- Systems that accumulate proprietary structured data and user feedback loops, enabling continuous improvement in specific high-value domains.
 >	- Potentially, orchestration/planning platforms that become embedded in enterprise workflows. This layer has high upside but is strategically contested by OS vendors, SaaS ecosystems, and cloud providers.
 
-6\. How fast do you expect inference costs to drop? 
+6\. How fast will inference costs drop? 
 >- 2×–5× reductions are likely in the near term through hardware efficiency, quantization, and batching.
 >- 10×+ reductions are possible but dependent on breakthroughs in model architecture, compilation, and edge acceleration.
 >- Agentic workflows consume significantly more compute than single-model inference; cost declines do not translate linearly to cheaper workflows.
@@ -105,7 +97,6 @@ date: 2025-12-03
 ### 1.2 Fundamental Understanding
 
 7\. What is the fundamental difference between internet apps, SaaS, and AI apps? What are the differences in evaluating deals in these different sectors?
-> LL:
 >- Internet apps
 >	- Primarily engagement-driven systems with zero marginal cost of replication.
 >	- Value comes from network effects, distribution, user acquisition funnels, and content/interaction loops.
@@ -153,10 +144,9 @@ date: 2025-12-03
 >	- Evaluation frameworks and quality control
 >	- Context assembly across varied enterprise data sources 
 
-9\. How do you think about planning in agentic systems (e.g., CoT/ToT, ReAct, code-based planning, multi-agent setups), and what failure modes have you actually seen or worry most about?
+9\. How does planning work in agentic systems (e.g., CoT/ToT, ReAct, code-based planning, multi-agent setups), and what failure modes are most concerning?
 
-10\. What are the most important missing infrastructure pieces for agents (e.g., memory, eval, guardrails, orchestration, trust/safety, simulation), and which of these do you think are attractive for venture investment?
-> LL: 
+10\. What are the most important missing infrastructure pieces for agents (e.g., memory, eval, guardrails, orchestration, trust/safety, simulation), and which are attractive for venture investment?
 >- Model performance is good enough today. Generally, if users know the right prompts and the most robust best practices, model performance is quite good. 
 >
 >What's missing:
@@ -170,20 +160,19 @@ date: 2025-12-03
 > - Modality: Text-based interaction is highly inefficient. Going forward, we should be able to prompt with speech (already many breakthroughs) and camera.
 > - Agentic coding: Although agentic coding tools (like Cursor, Claude Code) are already very good at generating code, there are still significant pain points in how to manage the codebase to keep it clean and scalable, as well as deployment.
 
-11\. Will agentic systems start with niche applications, or will development happen directly on general use cases? What trends have you observed?
+11\. Will agentic systems start with niche applications, or will development happen directly on general use cases?
 
 ### 1.3 Evaluation and Hands-On Depth
 
-12\. How do you evaluate an AI product's performance in practice
+12\. How to evaluate an AI product's performance in practice?
 	- objective vs. subjective evals
 	- temporal consistency, robustness
-	- “real” data advantage vs. storytelling
-> LL: There are objective vs. subjective evals.
+	- "real" data advantage vs. storytelling
+> There are objective vs. subjective evals.
 >- Objective means code-checkable, right vs. wrong (correct answer, correct SQL, etc.). Objective eval is easier because we just need a sample and correct-answer checking.
 >- Subjective means something that can be graded (e.g., a deal memo). Subjective eval is harder because it's difficult to score accurately.
 
-13\. What models, tools, or agents do you personally use day-to-day, and what recent experiment has materially changed how you work?
-> LL:
+13\. What models, tools, or agents do I use day-to-day, and what recent experiment has materially changed how I work?
 > - Project management: Notion (superior visualization)
 > - General tasks (writing notes, thoughts, etc.): Obsidian + Claude Code (direct access to local files)
 > - Database: SQLite (for personal usage of deal tracking)
@@ -191,7 +180,7 @@ date: 2025-12-03
 > - Learning: NotebookLM + Obsidian + Excalidraw
 > - Search for nuanced info: Perplexity
 
-14\. What's the most recent LLM/agent paper or technical resource you read that changed your thinking, and how did it change your view?
+14\. What's the most recent LLM/agent paper or technical resource that changed my thinking, and how?
 
 ---
 
@@ -199,8 +188,7 @@ date: 2025-12-03
 
 ### 2.1 Segment Focus
 
-15\. Given your endgame view and what’s technically hard vs. easy for LLMs, which categories of software are you most focused on investing in, and which “hot” areas are you intentionally avoiding? Why?
-> LL:
+15\. Given the endgame view and what's technically hard vs. easy for LLMs, which categories of software should I focus on investing in, and which "hot" areas should I avoid?
 >- Should focus:
 >	- The durable opportunity lies in applications with these characteristics:
 >		(1) correctness matters, requires low hallucination
@@ -215,13 +203,13 @@ date: 2025-12-03
 
 ### 2.2 Ideal Team Profile
 
-16\. What are the non-negotiable characteristics of an AI founding team, and how do you practically test for them?
-> LL: The team should have both strong technical capability (so they can adapt to model changes and iterate very quickly) and product management experience (so they can build apps that actually solve problems with good user experience).
+16\. What are the non-negotiable characteristics of an AI founding team, and how to practically test for them?
+> The team should have both strong technical capability (so they can adapt to model changes and iterate very quickly) and product management experience (so they can build apps that actually solve problems with good user experience).
 
-17\. How do you assess whether a founder and team can survive rapid changes in the model/provider landscape over the next 5–10 years?
-> LL: The founder doesn't necessarily need ML experience, but must have a strong fundamental understanding of how LLMs work and scientific research capability so they know how to build products on top of them.
+17\. How to assess whether a founder and team can survive rapid changes in the model/provider landscape over the next 5–10 years?
+> The founder doesn't necessarily need ML experience, but must have a strong fundamental understanding of how LLMs work and scientific research capability so they know how to build products on top of them.
 
-18\. Would you prefer AI-native startups or incumbent fast-learners adding AI?
+18\. AI-native startups or incumbent fast-learners adding AI?
 
 19\. What are the biggest red flags in AI founders or "AI products" that non-technical or generalist VCs often miss?
 
@@ -229,21 +217,21 @@ date: 2025-12-03
 
 20\. How will open source model providers monetize?
 
-21\. SaaS pricing (per seat) is dying for AI. Do you believe in 'consumption-based' (tokens) or 'outcome-based' (dollars per task)? How do we underwrite the quality and durability of that 'outcome-based' revenue?
+21\. SaaS pricing (per seat) is dying for AI. Consumption-based (tokens) or outcome-based (dollars per task)? How to underwrite the quality and durability of outcome-based revenue?
 
-22\. What is the current gross margin level of applications? What do you expect the future trend to be?
+22\. What is the current gross margin level of AI applications? What's the future trend?
 
-23\. In a world where core model intelligence becomes cheaper and more available, what do you believe becomes the most important driver of long-term value (distribution, proprietary data, workflow lock-in, something else)?
+23\. In a world where core model intelligence becomes cheaper and more available, what becomes the most important driver of long-term value (distribution, proprietary data, workflow lock-in, something else)?
 
 ### 2.4 Investment Strategy
 
-24\. At which stage (seed, A, growth) do you think the risk/reward is best for AI software, and how does that shape your fund's strategy?
+24\. At which stage (seed, A, growth) is the risk/reward best for AI software?
 
-25\. How do you underwrite a company at early stage / growth stage?
-> LL: Need deep understanding to (1) evaluate how quickly the startup can adapt and iterate, (2) what is defensible vs. not, and (3) what larger TAM use cases exist.
+25\. How to underwrite a company at early stage / growth stage?
+> Need deep understanding to (1) evaluate how quickly the startup can adapt and iterate, (2) what is defensible vs. not, and (3) what larger TAM use cases exist.
 
-26\. What's your exit strategy? Have there been any examples of M&A or secondary transactions of AI startups?
-> LL: No one knows how to exit AI apps (yet), and it's very hard to gauge the upside. Better to take money off the table aggressively.
+26\. What's the exit strategy for AI startups? Any examples of M&A or secondary transactions?
+> No one knows how to exit AI apps (yet), and it's very hard to gauge the upside. Better to take money off the table aggressively.
 
-27\. Walk me through your process for evaluating an AI deal from first meeting to conviction: what do you do differently from a generalist VC, especially around technical diligence and "fast no's"?
+27\. What's my process for evaluating an AI deal from first meeting to conviction? What do I do differently from a generalist VC, especially around technical diligence and "fast no's"?
 
