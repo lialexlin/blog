@@ -23,5 +23,8 @@ vendor/
 # Local env
 .env
 
+# Local preview script
+preview.bat
+
 # Obsidian (machine-specific, not content)
 .obsidian/workspace.json

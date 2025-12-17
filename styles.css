@@ -121,6 +121,17 @@ h1 {
   font-weight: 300;
 }
 
+.about-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.about-link:hover {
+  color: #1a1a1a;
+}
+
 h2 {
   font-size: 1.25rem;
   margin: 2rem 0 1rem;

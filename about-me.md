@@ -1,9 +1,7 @@
 ---
-created: 2025-12-16
-tags:
-  - writing
-Date:
-status:
+layout: post
+title: About Me
+date: 2025-12-16
 ---
 ### About me 
 
