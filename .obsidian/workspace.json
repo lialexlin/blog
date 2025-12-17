@@ -11,12 +11,14 @@
             "id": "fd6c3c41415769dd",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "image/Pasted image 20251125174904.png"
+                "file": "ai-software-questions.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20251125174904"
+              "icon": "lucide-file",
+              "title": "ai-software-questions"
             }
           }
         ]
@@ -192,13 +194,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5292aac23492e5bf",
+  "active": "fd6c3c41415769dd",
   "lastOpenFiles": [
+    "about-me.md",
+    "My worldview.md",
+    "image/Pasted image 20251125174904.png",
     "book-of-the-year-the-almanack-of-naval-ravikant.md",
     "Book of the year - The Almanack of Naval Ravikant.md",
     "image/Pasted image 20251203181125.png",
     "image/Pasted image 20251127175604.png",
-    "image/Pasted image 20251125174904.png",
     "ai-software-questions.md",
     "ai-software-questions 1.md",
     "ai-software-questions.md.tmp.40848.1765853207311",
