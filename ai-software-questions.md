@@ -3,11 +3,11 @@ layout: post
 title: AI Software Questions
 date: 2025-12-03
 ---
-# What This Document Is
+## What This Document Is
 
 A working list of questions I'm asking myself to develop a clearer view on AI investing. For each question, I document my current thinking—not as final answers, but as positions to stress-test and update as the space evolves.
 
-# 1. Technical depth
+## 1. Technical depth
 
 ### 1.1 AI Endgame & Architectural Understanding
 
@@ -184,7 +184,7 @@ A working list of questions I'm asking myself to develop a clearer view on AI in
 
 ---
 
-# 2. Business capability
+## 2. Business capability
 
 ### 2.1 Segment Focus
 

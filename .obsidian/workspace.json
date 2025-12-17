@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ai-software.md",
+                "file": "ai-software-questions.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ai-software"
+              "title": "Outline of ai-software-questions"
             }
           },
           {
@@ -176,11 +176,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 350.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,7 +194,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fd6c3c41415769dd",
+  "active": "65f3ab4fd88b7123",
   "lastOpenFiles": [
     "_site/preview-option2.html",
     "preview-option2.html",
