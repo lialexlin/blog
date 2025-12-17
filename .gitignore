@@ -6,6 +6,7 @@ _site/
 # Bundler
 vendor/
 .bundle/
+Gemfile.lock
 
 # Sass
 .sass-cache/
