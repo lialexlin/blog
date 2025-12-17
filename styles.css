@@ -322,6 +322,24 @@ a:hover {
   color: #0a0a0a;
 }
 
+/* Footer */
+.site-footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.site-footer a {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.site-footer a:hover {
+  color: #0f7b6f;
+}
+
 /* Responsive */
 @media (max-width: 1300px) {
   .toc {
