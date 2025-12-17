@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 2: One Bold Element</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .site-header {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid #1a1a1a;
+    }
+
+    .site-name {
+      font-size: 2.75rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      color: #0a0a0a;
+    }
+
+    .site-tagline {
+      font-size: 1rem;
+      color: #666;
+      font-weight: 400;
+      max-width: 480px;
+      margin-bottom: 1rem;
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      color: #1a6b5c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: gap 0.2s ease;
+    }
+
+    .about-link:hover {
+      gap: 0.6rem;
+      color: #145347;
+    }
+
+    .about-link::after {
+      content: '\2192';
+      font-size: 1rem;
+    }
+
+    .article-list {
+      list-style: none;
+    }
+
+    .article-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .article-item a {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.75rem 0;
+      border-radius: 4px;
+      transition: background 0.15s ease;
+    }
+
+    .article-item a:hover {
+      background: rgba(26, 107, 92, 0.06);
+      margin: 0 -0.75rem;
+      padding: 0.75rem;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    .article-item a:hover .article-title {
+      color: #1a6b5c;
+    }
+
+    .article-date {
+      font-size: 0.8rem;
+      color: #999;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    .label {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #1a6b5c;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <div class="label">OPTION 2: ONE BOLD ELEMENT</div>
+  <main>
+    <header class="site-header">
+      <h1 class="site-name">Li (Alex) Lin</h1>
+      <p class="site-tagline">Playing the lifetime game of compounding judgement, systems and trust - to create value in service of others.</p>
+      <a href="#" class="about-link">More about me</a>
+    </header>
+    <ul class="article-list">
+      <li class="article-item">
+        <a href="#">
+          <div class="article-title">Book of the Year - The Almanack of Naval Ravikant</div>
+          <div class="article-date">Dec 16, 2025</div>
+        </a>
+      </li>
+      <li class="article-item">
+        <a href="#">
+          <div class="article-title">What Crypto Taught Me</div>
+          <div class="article-date">Dec 14, 2025</div>
+        </a>
+      </li>
+      <li class="article-item">
+        <a href="#">
+          <div class="article-title">AI Software Questions</div>
+          <div class="article-date">Dec 3, 2025</div>
+        </a>
+      </li>
+      <li class="article-item">
+        <a href="#">
+          <div class="article-title">Claude Code and the End of UI</div>
+          <div class="article-date">Nov 15, 2025</div>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
