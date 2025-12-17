@@ -6,7 +6,8 @@
       "Bash(git push)",
       "Bash(cat:*)",
       "Bash(ruby -v:*)",
-      "Bash(bundle install:*)"
+      "Bash(bundle install:*)",
+      "Bash(taskkill:*)"
     ]
   }
 }
