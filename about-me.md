@@ -2,9 +2,9 @@
 layout: post
 title: About Me
 date: 2025-12-16
+hide_toc: true
+hide_date: true
 ---
-### About me 
-
 Finance professional by training, entrepreneur by ambition. I spend my days evaluating private equity investments and exploring how AI reshapes the way we work. Outside work: marathon and triathlon training, two cats, happily married.
 
 ### My belief and life principles

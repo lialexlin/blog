@@ -26,6 +26,8 @@ Gemfile.lock
 
 # Local preview script
 preview.bat
+preview-option1.html
+preview-option2.html
 
 # Obsidian (machine-specific, not content)
 .obsidian/workspace.json

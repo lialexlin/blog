@@ -6,19 +6,23 @@
   <title>{{ page.title }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
+  {% unless page.hide_toc %}
   <nav id="toc" class="toc">
     <ul></ul>
   </nav>
+  {% endunless %}
+
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top"></button>
 
   <main>
     <a href="{{ '/' | relative_url }}" class="back-link">Back to writings</a>
     <article>
       <h1>{{ page.title }}</h1>
-      <div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+      {% unless page.hide_date %}<div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>{% endunless %}
       <div class="article-content">
         {{ content }}
       </div>
@@ -27,6 +31,19 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Back to top button visibility
+      const backToTop = document.querySelector('.back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+      }
+
+      // TOC functionality
       const content = document.querySelector('.article-content');
       const toc = document.querySelector('#toc ul');
       const headings = content.querySelectorAll('h1, h2, h3');
