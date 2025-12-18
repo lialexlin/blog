@@ -11,7 +11,7 @@ A minimalist personal blog built with Jekyll, deployed to GitHub Pages at `https
 - **Jekyll static site** - GitHub Pages runs Jekyll automatically, no local build required
 - **Markdown articles** - Place `.md` files at root with frontmatter; they become pages at `/:slug`
 - **Two layouts**: `_layouts/default.html` (base), `_layouts/post.html` (articles)
-- **Single stylesheet**: `styles.css` with Urbanist font from Google Fonts
+- **Single stylesheet**: `styles.css` with DM Sans font from Google Fonts
 
 ## Adding New Articles
 
@@ -34,11 +34,51 @@ A minimalist personal blog built with Jekyll, deployed to GitHub Pages at `https
 
 ## Local Development
 
+### Prerequisites
+
+**macOS:**
 ```bash
-# Serve locally (requires Jekyll installed)
+# Ruby comes pre-installed, but install a newer version via Homebrew
+brew install ruby
+echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+**Windows:**
+```bash
+# Install Ruby via RubyInstaller: https://rubyinstaller.org/
+# Download "Ruby+Devkit" version, run installer with default options
+# Restart terminal after installation
+```
+
+Verify installation:
+```bash
+ruby -v    # Should show 3.x
+gem -v     # Should show gem version
+```
+
+### First-time Setup
+
+```bash
+# Install Bundler (Ruby package manager)
+gem install bundler
+
+# Install project dependencies
+bundle install
+```
+
+### Running Locally
+
+```bash
+# Start Jekyll dev server with live reload
 bundle exec jekyll serve
 
-# Or use Python for quick static preview (no Jekyll processing)
+# Opens at http://localhost:4000
+# Auto-rebuilds on file changes
+```
+
+Alternative (no Jekyll processing, static files only):
+```bash
 python3 -m http.server 8000
 ```
 

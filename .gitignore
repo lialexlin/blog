@@ -6,7 +6,6 @@ _site/
 # Bundler
 vendor/
 .bundle/
-Gemfile.lock
 
 # Sass
 .sass-cache/
@@ -23,6 +22,9 @@ Gemfile.lock
 
 # Local env
 .env
+
+# Claude Code (local settings)
+.claude/
 
 # Local preview script
 preview.bat

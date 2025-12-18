@@ -330,6 +330,10 @@ a:hover {
   padding: 3rem 1.5rem;
   border-top: 1px solid #e5e5e5;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .site-footer a {
@@ -339,6 +343,21 @@ a:hover {
 
 .site-footer a:hover {
   color: #0f7b6f;
+}
+
+.footer-separator {
+  color: #ccc;
+  font-size: 0.875rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.social-link svg {
+  display: block;
 }
 
 /* Responsive */
