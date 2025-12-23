@@ -38,10 +38,12 @@ A working list of questions I'm asking myself to develop a clearer view on AI in
 >	- This memory is shared across orchestrator and key vertical systems, with strict privacy and enterprise permissioning.
 >- **Overall user experience**
 >	- Users continue to open individual apps for certain workflows, but a growing portion of work is delegated: declare intent → agent plans → agents execute → user reviews → agent refines.
->	- The cognitive load shifts from “how to do the task” to “what outcome is desired”.
+>	- The cognitive load shifts from "how to do the task" to "what outcome is desired".
 >
 >**Agent loop**
+>
 >![](image/Pasted%20image%2020251218115025.png)
+>
 >An agentic system operates in a continuous loop across three stages. Each stage feeds into the next, and the loop repeats until the task is complete or escalated.
 >
 >**1. Think**
