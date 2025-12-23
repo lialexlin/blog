@@ -12,7 +12,7 @@ A working list of questions I'm asking myself to develop a clearer view on AI in
 ### How will a user interact with software in 5–10 years - what are the stacks and how do they work?
 
 >**The agentic system stack**
->![](image/Pasted%20image%2020251218114018.png)
+>![](/blog/image/Pasted%20image%2020251218114018.png)
 >- **User interaction**
 >	- Primary interfaces shift toward multimodal inputs: speech, text, camera/video, and contextual signals from the environment.
 >	- Traditional GUI remains, but most workflows begin with natural-language intent ("prepare the board pack", "analyze this dataset", "draft a contract consistent with our past versions").
@@ -41,7 +41,7 @@ A working list of questions I'm asking myself to develop a clearer view on AI in
 >	- The cognitive load shifts from “how to do the task” to “what outcome is desired”.
 >
 >**Agent loop**
->![](image/Pasted%20image%2020251218115025.png)
+>![](/blog/image/Pasted%20image%2020251218115025.png)
 >An agentic system operates in a continuous loop across three stages. Each stage feeds into the next, and the loop repeats until the task is complete or escalated.
 >
 >**1. Think**
