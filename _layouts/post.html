@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
+  <div class="reading-progress" id="reading-progress"></div>
+
   {% unless page.hide_toc %}
   <nav id="toc" class="toc">
     <ul></ul>
@@ -39,6 +41,16 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Reading progress bar
+      const progressBar = document.getElementById('reading-progress');
+
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      }
+
       // Back to top button visibility
       const backToTop = document.querySelector('.back-to-top');
       if (backToTop) {
@@ -53,15 +65,20 @@
 
       // TOC functionality
       const content = document.querySelector('.article-content');
+      const tocNav = document.getElementById('toc');
       const toc = document.querySelector('#toc ul');
       const headings = content.querySelectorAll('h1, h2, h3');
 
       if (headings.length === 0) {
-        document.getElementById('toc').style.display = 'none';
+        if (tocNav) tocNav.style.display = 'none';
+        window.addEventListener('scroll', updateProgress);
+        updateProgress();
         return;
       }
 
       const headingsList = [];
+      let tocManualScroll = false;
+      let tocManualScrollTimeout = null;
 
       headings.forEach((heading, index) => {
         const id = heading.id || 'heading-' + index;
@@ -79,6 +96,28 @@
         toc.appendChild(li);
       });
 
+      // Detect manual TOC scrolling
+      if (tocNav) {
+        tocNav.addEventListener('scroll', function() {
+          tocManualScroll = true;
+          clearTimeout(tocManualScrollTimeout);
+          tocManualScrollTimeout = setTimeout(() => {
+            tocManualScroll = false;
+          }, 2000);
+        }, { passive: true });
+
+        tocNav.addEventListener('mouseenter', function() {
+          tocManualScroll = true;
+        });
+
+        tocNav.addEventListener('mouseleave', function() {
+          clearTimeout(tocManualScrollTimeout);
+          tocManualScrollTimeout = setTimeout(() => {
+            tocManualScroll = false;
+          }, 500);
+        });
+      }
+
       function updateActiveHeading() {
         const scrollPos = window.scrollY + 100;
         let currentId = headingsList[0]?.id;
@@ -89,12 +128,33 @@
           }
         }
 
-        document.querySelectorAll('#toc a').forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+        const tocLinks = document.querySelectorAll('#toc a');
+        let activeLink = null;
+
+        tocLinks.forEach(a => {
+          const isActive = a.getAttribute('href') === '#' + currentId;
+          a.classList.toggle('active', isActive);
+          if (isActive) activeLink = a;
         });
+
+        // Auto-scroll TOC to keep active item visible (unless user is manually scrolling)
+        if (activeLink && tocNav && !tocManualScroll) {
+          const linkRect = activeLink.getBoundingClientRect();
+          const tocRect = tocNav.getBoundingClientRect();
+
+          // Only scroll if active link is outside visible area
+          if (linkRect.top < tocRect.top || linkRect.bottom > tocRect.bottom) {
+            activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          }
+        }
       }
 
-      window.addEventListener('scroll', updateActiveHeading);
+      window.addEventListener('scroll', function() {
+        updateProgress();
+        updateActiveHeading();
+      }, { passive: true });
+
+      updateProgress();
       updateActiveHeading();
 
       // Highlight heading when TOC link is clicked
