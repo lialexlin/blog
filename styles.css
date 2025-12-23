@@ -170,6 +170,42 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Article sections */
+.article-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #0f7b6f;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.published-section {
+  margin-top: 2.5rem;
+}
+
 /* Article list */
 .article-list {
   list-style: none;

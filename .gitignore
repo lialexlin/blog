@@ -26,10 +26,10 @@ vendor/
 # Claude Code (local settings)
 .claude/
 
-# Local preview script
-preview.bat
-preview-option1.html
-preview-option2.html
+# Local preview scripts (platform-specific)
+serve.command
+serve.bat
 
 # Obsidian (machine-specific, not content)
-.obsidian/workspace.json.claude/settings.local.json
+.obsidian/workspace.json
+.claude/settings.local.json
