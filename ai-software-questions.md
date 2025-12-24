@@ -12,9 +12,9 @@ A working list of questions I'm asking myself to develop a clearer view on AI in
 ### How will a user interact with software in 5–10 years - what are the stacks and how do they work?
 
 >**The agentic system stack**
-
+>
 >![](image/Pasted%20image%2020251218114018.png)
-
+>
 >- **User interaction**
 >	- Primary interfaces shift toward multimodal inputs: speech, text, camera/video, and contextual signals from the environment.
 >	- Traditional GUI remains, but most workflows begin with natural-language intent ("prepare the board pack", "analyze this dataset", "draft a contract consistent with our past versions").
@@ -77,25 +77,25 @@ A working list of questions I'm asking myself to develop a clearer view on AI in
 
 ### What are the gaps today to reach that endgame?
 
->- **Intent understanding**: Interpret what the user actually wants.
+>- **Intent understanding**: Interpret what the user actually wants.<br>
 >  Gaps: Long instructions still required; models struggle with ambiguous intents; weak adaptation to individual preferences.
->- **Planning and task decomposition**: Transform intent into a structured workflow or task graph.
+>- **Planning and task decomposition**: Transform intent into a structured workflow or task graph.<br>
 >  Gaps: Inconsistent decomposition; hallucinated steps; poor error handling; weak long-horizon coordination.
->- **Tool selection and execution**: Choose appropriate models to solve each subtask based on complexity, call relevant tools (SQL, Python, API calls), and execute them reliably.
+>- **Tool selection and execution**: Choose appropriate models to solve each subtask based on complexity, call relevant tools (SQL, Python, API calls), and execute them reliably.<br>
 >  Gaps: Poor model routing; fragile schema handling; inconsistent tool-use protocols; high sensitivity to minor tool changes.
->- **Modality**: Text-based interaction is inefficient. Users should be able to prompt and provide context via speech and camera. Agents should autonomously gather context and suggest next actions.
+>- **Modality**: Text-based interaction is inefficient. Users should be able to prompt and provide context via speech and camera. Agents should autonomously gather context and suggest next actions.<br>
 >  Gaps: Speech input has made progress, but visual context (screen, camera) remains underutilized. Proactive context gathering is still rare.
->- **Dynamic context engineering**: Gather relevant data across documents, files, apps, screens, APIs, and prior interactions for each sub-task.
+>- **Dynamic context engineering**: Gather relevant data across documents, files, apps, screens, APIs, and prior interactions for each sub-task.<br>
 >  Gaps: Context gathering remains manual. Users must know what context to provide and how to provide it efficiently. The agent should know where to find context and what to pull automatically.
->- **Programmable prompt engineering**: Craft and refine prompts to get the best results from models.
+>- **Programmable prompt engineering**: Craft and refine prompts to get the best results from models.<br>
 >  Gaps: Prompt iteration is manual and tightly coupled to evaluation. Users modify prompts based on subjective judgment of outputs. Ideally, systems should evaluate results systematically and adjust prompts programmatically. Additionally, best practices differ across models and evolve quickly, making it hard to stay current.
->- **Evaluation and correction**: Grade outputs, detect errors, and enforce quality thresholds.
+>- **Evaluation and correction**: Grade outputs, detect errors, and enforce quality thresholds.<br>
 >  Gaps: No reliable method for evaluating subjective tasks; limited self-evaluation capability; poor rubric enforcement; subjective outputs are hard to verify.
->- **Memory (short-term and long-term)**: Retain previous tasks, drafts, user preferences, and recurring workflows.
+>- **Memory (short-term and long-term)**: Retain previous tasks, drafts, user preferences, and recurring workflows.<br>
 >  Gaps: No true long-term memory. RAG provides retrieval, not learning. Personalization remains superficial. No continuous learning from interactions.
->- **Cross-agent communication**: Enable LLMs to communicate with each other and with applications. Anthropic's MCP is a promising step toward standardizing how agents discover capabilities and coordinate execution.
+>- **Cross-agent communication**: Enable LLMs to communicate with each other and with applications. Anthropic's MCP is a promising step toward standardizing how agents discover capabilities and coordinate execution.<br>
 >  Gaps: Interoperability is still immature. Dominant platforms are reluctant to expose their capabilities to orchestrating agents, since doing so dilutes their control over user workflows. Those who resist will eventually be replaced by agent-native alternatives.
->- **Agentic coding**: Tools like Cursor and Claude Code are already generating code effectively.
+>- **Agentic coding**: Tools like Cursor and Claude Code are already generating code effectively.<br>
 >  Gaps: Pain points remain in codebase management (keeping code clean, scalable, and well-structured) and deployment workflows.
 
 ### What are the strongest reasons this endgame might not happen? 
