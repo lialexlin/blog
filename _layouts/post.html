@@ -77,8 +77,8 @@
       }
 
       const headingsList = [];
-      let tocManualScroll = false;
-      let tocManualScrollTimeout = null;
+      let tocUserInteracting = false;
+      let tocInteractionTimeout = null;
 
       headings.forEach((heading, index) => {
         const id = heading.id || 'heading-' + index;
@@ -96,26 +96,29 @@
         toc.appendChild(li);
       });
 
-      // Detect manual TOC scrolling
+      // Detect manual TOC interaction (mouse/touch only, not programmatic scroll)
       if (tocNav) {
-        tocNav.addEventListener('scroll', function() {
-          tocManualScroll = true;
-          clearTimeout(tocManualScrollTimeout);
-          tocManualScrollTimeout = setTimeout(() => {
-            tocManualScroll = false;
-          }, 2000);
-        }, { passive: true });
-
         tocNav.addEventListener('mouseenter', function() {
-          tocManualScroll = true;
+          tocUserInteracting = true;
+          clearTimeout(tocInteractionTimeout);
         });
 
         tocNav.addEventListener('mouseleave', function() {
-          clearTimeout(tocManualScrollTimeout);
-          tocManualScrollTimeout = setTimeout(() => {
-            tocManualScroll = false;
-          }, 500);
+          tocInteractionTimeout = setTimeout(() => {
+            tocUserInteracting = false;
+          }, 1000);
         });
+
+        tocNav.addEventListener('touchstart', function() {
+          tocUserInteracting = true;
+          clearTimeout(tocInteractionTimeout);
+        }, { passive: true });
+
+        tocNav.addEventListener('touchend', function() {
+          tocInteractionTimeout = setTimeout(() => {
+            tocUserInteracting = false;
+          }, 1000);
+        }, { passive: true });
       }
 
       function updateActiveHeading() {
@@ -137,14 +140,22 @@
           if (isActive) activeLink = a;
         });
 
-        // Auto-scroll TOC to keep active item visible (unless user is manually scrolling)
-        if (activeLink && tocNav && !tocManualScroll) {
-          const linkRect = activeLink.getBoundingClientRect();
+        // Auto-scroll TOC to keep active item visible (unless user is interacting with TOC)
+        if (activeLink && tocNav && !tocUserInteracting) {
+          const li = activeLink.parentElement;
+          const liRect = li.getBoundingClientRect();
           const tocRect = tocNav.getBoundingClientRect();
 
-          // Only scroll if active link is outside visible area
-          if (linkRect.top < tocRect.top || linkRect.bottom > tocRect.bottom) {
-            activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          // Check if link is outside visible area of TOC
+          const buffer = 30;
+          if (liRect.top < tocRect.top + buffer) {
+            // Link is above visible area
+            const scrollAmount = tocRect.top - liRect.top + buffer;
+            tocNav.scrollTo({ top: tocNav.scrollTop - scrollAmount, behavior: 'smooth' });
+          } else if (liRect.bottom > tocRect.bottom - buffer) {
+            // Link is below visible area
+            const scrollAmount = liRect.bottom - tocRect.bottom + buffer;
+            tocNav.scrollTo({ top: tocNav.scrollTop + scrollAmount, behavior: 'smooth' });
           }
         }
       }

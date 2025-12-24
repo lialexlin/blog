@@ -31,11 +31,12 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
-  background: #0f7b6f;
+  height: 3px;
+  background: linear-gradient(90deg, #0f7b6f 0%, #14a396 100%);
   width: 0%;
   z-index: 1000;
   transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px rgba(15, 123, 111, 0.5);
 }
 
 /* Table of Contents */
