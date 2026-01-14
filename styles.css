@@ -322,6 +322,18 @@ a:hover {
   font-weight: 600;
 }
 
+.article-content a {
+  color: #0f7b6f;
+  text-decoration: underline;
+  text-decoration-color: rgba(15, 123, 111, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.article-content a:hover {
+  text-decoration-color: #0f7b6f;
+}
+
 /* Back to top button */
 .back-to-top {
   position: fixed;
