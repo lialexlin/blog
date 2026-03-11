@@ -11,6 +11,7 @@ Finance professional by training, entrepreneur by ambition. I spend my days eval
 
 - Be curious, not clever. Seek truth through first principles.
 - Be kind and humble. Seek honest feedback and criticism.
+- [You really do become what you think.]({{ 'you-really-do-become-what-you-think' | relative_url }}) Thought -> attention filter -> micro-decisions -> repeated behavior -> habit -> identity.
 - Build compounding systems to solve problems, not ad hoc fixes.
 - Think long-term in a short-term world. Start small, iterate fast.
 - Trust and relationships come first. Transactions and profit come next.
@@ -18,7 +19,8 @@ Finance professional by training, entrepreneur by ambition. I spend my days eval
 - Physical health: consistent sleep, regular exercise, proper nutrition.
 - Mental health: let go of what I can't control, invest in deep relationships.
 - Winners focus on winning, losers focus on winners.
-- Pursue "freedom from" over "freedom to."
+- [Pursue "freedom from" over "freedom to".]({{ 'pursue-freedom-from-over-freedom-to' | relative_url }})
+- [Emotions are not problems, they're signals.]({{ 'emotions-are-not-problems-theyre-signals' | relative_url }})
 
 ### Experiences and interests
 
