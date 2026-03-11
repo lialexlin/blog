@@ -48,8 +48,8 @@ This also works in reverse. If you habitually think "I'm not the kind of person 
 
 The practical version of this idea has three parts:
 
-1\. **Audit your recurring thoughts** - not the ones you choose, but the ones that run on autopilot. Those are the ones steering your micro-decisions.
-2\. **The unit of change is the micro-decision, not the grand resolution.** You don't become a deep thinker by declaring it. You become one by choosing the whitepaper over the phone 200 times.
-3\. **Identity is a lagging indicator of repeated behavior, which is a lagging indicator of thought patterns.** If you want to change what you become, change what you habitually think about. Everything downstream follows.
+1. **Audit your recurring thoughts** - not the ones you choose, but the ones that run on autopilot. Those are the ones steering your micro-decisions.
+2. **The unit of change is the micro-decision, not the grand resolution.** You don't become a deep thinker by declaring it. You become one by choosing the whitepaper over the phone 200 times.
+3. **Identity is a lagging indicator of repeated behavior, which is a lagging indicator of thought patterns.** If you want to change what you become, change what you habitually think about. Everything downstream follows.
 
 The reason this idea feels abstract is because each individual step is tiny and invisible. No single thought, no single micro-decision, no single day matters. But the direction of the compound curve is set by the thought pattern at the top.
