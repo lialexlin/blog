@@ -28,7 +28,7 @@ A minimalist personal blog built with Jekyll, deployed to GitHub Pages at `https
 
 ## Markdown Formatting Notes
 
-- Use `N\.` (escaped period) for numbered lists to prevent Markdown from resetting numbering after blockquotes
+- Use `N\.` (escaped period) for numbered lists only when blockquotes interrupt the list (which resets Markdown numbering). For uninterrupted lists, use standard `N.` syntax
 - Add blank lines before section headers for proper rendering
 - Blockquotes (`>`) are used for answers/responses in Q&A format
 

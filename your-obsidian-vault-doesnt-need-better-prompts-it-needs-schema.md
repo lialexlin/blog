@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Your Obsidian Vault Doesn't Need Better Prompts. It Needs Schema.
+title: Your Obsidian Vault Doesn't Need Better Prompts. It Needs Schema
 date: 2026-03-14
 ---
 

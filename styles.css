@@ -422,6 +422,56 @@ a:hover {
   display: block;
 }
 
+/* Language navigation */
+.lang-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+}
+
+.nav-bar .back-link {
+  margin-bottom: 0;
+}
+
+.lang-toggle {
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.lang-toggle:hover {
+  color: #0f7b6f;
+  text-decoration: none;
+}
+
+/* CJK typography */
+[lang^="zh"] {
+  font-family: 'Noto Sans TC', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[lang^="zh"] .site-name {
+  letter-spacing: 0;
+}
+
+.zh-note {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.zh-note a {
+  color: #0f7b6f;
+}
+
 /* Responsive */
 @media (max-width: 1300px) {
   .toc {

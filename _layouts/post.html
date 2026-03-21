@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% if page.lang == 'zh' %}zh-Hant{% else %}en{% endif %}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,11 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='white'/><text x='50' y='68' font-size='60' font-family='system-ui, sans-serif' font-weight='600' text-anchor='middle' fill='%231a1a1a'>L</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% if page.lang == 'zh' %}
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  {% else %}
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  {% endif %}
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
@@ -22,7 +26,15 @@
   <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top"></button>
 
   <main>
-    <a href="{{ '/' | relative_url }}" class="back-link">Back to writings</a>
+    <div class="nav-bar">
+      {% if page.lang == 'zh' %}
+      <a href="{{ '/zh/' | relative_url }}" class="back-link">返回文章列表</a>
+      <a href="{{ '/' | relative_url }}" class="lang-toggle">EN</a>
+      {% else %}
+      <a href="{{ '/' | relative_url }}" class="back-link">Back to writings</a>
+      <a href="{{ '/zh/' | relative_url }}" class="lang-toggle">中文</a>
+      {% endif %}
+    </div>
     <article>
       <h1>{{ page.title }}</h1>
       {% unless page.hide_date %}<div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>{% endunless %}
