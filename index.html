@@ -2,19 +2,24 @@
 layout: default
 title: Li (Alex) Lin
 ---
-<header class="site-header">
-  <h1 class="site-name">Li (Alex) Lin</h1>
-  <p class="site-tagline">Playing the lifetime game of compounding judgement, systems and trust - to create value in service of others.</p>
-  <a href="{{ 'about-me' | relative_url }}" class="about-link">More about me <span class="arrow"></span></a>
-</header>
+<section class="hero">
+  <div class="hero__eyebrow">Personal · Writing</div>
+  <h1>Li (Alex) Lin</h1>
+  <p class="hero__dek">Playing the lifetime game of compounding judgement, systems and trust - to create value in service of others.</p>
+  <a href="{{ 'about-me' | relative_url }}" class="hero__link">More about me →</a>
+  <div class="hero__stats">
+    <div class="ll-stat"><span class="ll-stat__value">11</span><span class="ll-stat__label">Essays</span></div>
+    <div class="ll-stat"><span class="ll-stat__value">2</span><span class="ll-stat__label">Languages</span></div>
+    <div class="ll-stat"><span class="ll-stat__value">2025</span><span class="ll-stat__label">Writing since</span></div>
+  </div>
+</section>
 
-<section class="article-section wip-section">
-  <h2 class="section-header">
-    <span class="pulse-dot"></span>
-    Work in Progress
-  </h2>
+<section class="article-section">
+  <div class="section-head">
+    <h2><span class="pulse-dot"></span>Work in progress</h2>
+  </div>
   <ul class="article-list">
-    <li class="article-item wip">
+    <li class="article-item">
       <a href="{{ 'ai-software-questions' | relative_url }}">
         <div class="article-title">AI Software Questions</div>
         <div class="article-date">Updated Dec 24</div>
@@ -23,9 +28,18 @@ title: Li (Alex) Lin
   </ul>
 </section>
 
-<section class="article-section published-section">
-  <h2 class="section-header">Published</h2>
+<section class="article-section">
+  <div class="section-head">
+    <h2>Published</h2>
+    <span class="count">11 essays</span>
+  </div>
   <ul class="article-list">
+    <li class="article-item">
+      <a href="{{ 'the-ai-native-way-to-run-a-traditional-business' | relative_url }}">
+        <div class="article-title">The AI-Native Way to Run a Traditional Business</div>
+        <div class="article-date">Jul 16, 2026</div>
+      </a>
+    </li>
     <li class="article-item">
       <a href="{{ 'identity-is-the-last-moat-in-the-ai-age' | relative_url }}">
         <div class="article-title">Identity Is the Last Moat in the AI Age</div>

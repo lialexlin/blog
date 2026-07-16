@@ -10,8 +10,9 @@ A minimalist personal blog built with Jekyll, deployed to GitHub Pages at `https
 
 - **Jekyll static site** - GitHub Pages runs Jekyll automatically, no local build required
 - **Markdown articles** - Place `.md` files at root with frontmatter; they become pages at `/:slug`
-- **Two layouts**: `_layouts/default.html` (base), `_layouts/post.html` (articles)
-- **Single stylesheet**: `styles.css` with DM Sans font from Google Fonts
+- **Two layouts**: `_layouts/default.html` (site chrome: sticky nav + footer), `_layouts/post.html` (nests in default; adds TOC, reading progress, article shell)
+- **Single stylesheet**: `styles.css` — the **lialexlin design system** (DM Sans + DM Mono, navy `#1c2b4a` accent). Tokens and prose styles are pulled from the claude.ai/design project `019dd1ca-a689-7f36-a153-a15ba8d705f5` (source of truth; local skill mirror: `~/.claude/skills/lialexlin-design/`). Re-sync via DesignSync when the design project changes; don't fork token values here.
+- **Chinese mirror**: `zh/` holds translated articles + its own `index.html` (`lang: zh` frontmatter switches nav labels and loads Noto Sans TC)
 
 ## Adding New Articles
 

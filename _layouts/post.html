@@ -1,199 +1,165 @@
-<!DOCTYPE html>
-<html lang="{% if page.lang == 'zh' %}zh-Hant{% else %}en{% endif %}">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='white'/><text x='50' y='68' font-size='60' font-family='system-ui, sans-serif' font-weight='600' text-anchor='middle' fill='%231a1a1a'>L</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  {% if page.lang == 'zh' %}
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
-  {% else %}
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  {% endif %}
-  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-</head>
-<body>
-  <div class="reading-progress" id="reading-progress"></div>
+---
+layout: default
+---
+<div class="reading-progress" id="reading-progress"></div>
 
-  {% unless page.hide_toc %}
-  <nav id="toc" class="toc">
-    <ul></ul>
-  </nav>
-  {% endunless %}
+{% unless page.hide_toc %}
+<nav id="toc" class="toc">
+  <ul></ul>
+</nav>
+{% endunless %}
 
-  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top"></button>
+<button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top"></button>
 
-  <main>
-    <div class="nav-bar">
-      {% if page.lang == 'zh' %}
-      <a href="{{ '/zh/' | relative_url }}" class="back-link">返回文章列表</a>
-      <a href="{{ '/' | relative_url }}" class="lang-toggle">EN</a>
-      {% else %}
-      <a href="{{ '/' | relative_url }}" class="back-link">Back to writings</a>
-      <a href="{{ '/zh/' | relative_url }}" class="lang-toggle">中文</a>
-      {% endif %}
-    </div>
-    <article>
-      <h1>{{ page.title }}</h1>
-      {% unless page.hide_date %}<div class="article-date">{{ page.date | date: "%B %-d, %Y" }}</div>{% endunless %}
-      <div class="article-content">
-        {{ content }}
-      </div>
-    </article>
-  </main>
-  <footer class="site-footer">
-    <a href="mailto:li.alex.lin@gmail.com">li.alex.lin@gmail.com</a>
-    <span class="footer-separator">·</span>
-    <a href="https://x.com/lialexlin" target="_blank" rel="noopener" class="social-link" aria-label="X (Twitter)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-  </footer>
+<article>
+  {% unless page.hide_date %}<div class="post-eyebrow">{{ page.date | date: "%b %-d, %Y" }}</div>{% endunless %}
+  <h1>{{ page.title }}</h1>
+  <div class="article-content">
+    {{ content }}
+  </div>
+</article>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Reading progress bar
-      const progressBar = document.getElementById('reading-progress');
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Reading progress bar
+    const progressBar = document.getElementById('reading-progress');
 
-      function updateProgress() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = progress + '%';
-      }
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    }
 
-      // Back to top button visibility
-      const backToTop = document.querySelector('.back-to-top');
-      if (backToTop) {
-        window.addEventListener('scroll', function() {
-          if (window.scrollY > 300) {
-            backToTop.classList.add('visible');
-          } else {
-            backToTop.classList.remove('visible');
-          }
-        });
-      }
+    // Back to top button visibility
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+    }
 
-      // TOC functionality
-      const content = document.querySelector('.article-content');
-      const tocNav = document.getElementById('toc');
-      const toc = document.querySelector('#toc ul');
-      const headings = content.querySelectorAll('h1, h2, h3');
+    // TOC functionality
+    const content = document.querySelector('.article-content');
+    const tocNav = document.getElementById('toc');
+    const toc = document.querySelector('#toc ul');
+    const headings = content.querySelectorAll('h1, h2, h3');
 
-      if (headings.length === 0) {
-        if (tocNav) tocNav.style.display = 'none';
-        window.addEventListener('scroll', updateProgress);
-        updateProgress();
-        return;
-      }
+    if (!toc || headings.length === 0) {
+      if (tocNav) tocNav.style.display = 'none';
+      window.addEventListener('scroll', updateProgress);
+      updateProgress();
+      return;
+    }
 
-      const headingsList = [];
-      let tocUserInteracting = false;
-      let tocInteractionTimeout = null;
+    const headingsList = [];
+    let tocUserInteracting = false;
+    let tocInteractionTimeout = null;
 
-      headings.forEach((heading, index) => {
-        const id = heading.id || 'heading-' + index;
-        heading.id = id;
-        headingsList.push({ id, element: heading });
+    headings.forEach((heading, index) => {
+      const id = heading.id || 'heading-' + index;
+      heading.id = id;
+      headingsList.push({ id, element: heading });
 
-        const li = document.createElement('li');
-        li.className = 'toc-' + heading.tagName.toLowerCase();
+      const li = document.createElement('li');
+      li.className = 'toc-' + heading.tagName.toLowerCase();
 
-        const a = document.createElement('a');
-        a.href = '#' + id;
-        a.textContent = heading.textContent;
+      const a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = heading.textContent;
 
-        li.appendChild(a);
-        toc.appendChild(li);
+      li.appendChild(a);
+      toc.appendChild(li);
+    });
+
+    // Detect manual TOC interaction (mouse/touch only, not programmatic scroll)
+    if (tocNav) {
+      tocNav.addEventListener('mouseenter', function() {
+        tocUserInteracting = true;
+        clearTimeout(tocInteractionTimeout);
       });
 
-      // Detect manual TOC interaction (mouse/touch only, not programmatic scroll)
-      if (tocNav) {
-        tocNav.addEventListener('mouseenter', function() {
-          tocUserInteracting = true;
-          clearTimeout(tocInteractionTimeout);
-        });
+      tocNav.addEventListener('mouseleave', function() {
+        tocInteractionTimeout = setTimeout(() => {
+          tocUserInteracting = false;
+        }, 1000);
+      });
 
-        tocNav.addEventListener('mouseleave', function() {
-          tocInteractionTimeout = setTimeout(() => {
-            tocUserInteracting = false;
-          }, 1000);
-        });
-
-        tocNav.addEventListener('touchstart', function() {
-          tocUserInteracting = true;
-          clearTimeout(tocInteractionTimeout);
-        }, { passive: true });
-
-        tocNav.addEventListener('touchend', function() {
-          tocInteractionTimeout = setTimeout(() => {
-            tocUserInteracting = false;
-          }, 1000);
-        }, { passive: true });
-      }
-
-      function updateActiveHeading() {
-        const scrollPos = window.scrollY + 100;
-        let currentId = headingsList[0]?.id;
-
-        for (const { id, element } of headingsList) {
-          if (element.offsetTop <= scrollPos) {
-            currentId = id;
-          }
-        }
-
-        const tocLinks = document.querySelectorAll('#toc a');
-        let activeLink = null;
-
-        tocLinks.forEach(a => {
-          const isActive = a.getAttribute('href') === '#' + currentId;
-          a.classList.toggle('active', isActive);
-          if (isActive) activeLink = a;
-        });
-
-        // Auto-scroll TOC to keep active item visible (unless user is interacting with TOC)
-        if (activeLink && tocNav && !tocUserInteracting) {
-          const li = activeLink.parentElement;
-          const liRect = li.getBoundingClientRect();
-          const tocRect = tocNav.getBoundingClientRect();
-
-          // Check if link is outside visible area of TOC
-          const buffer = 30;
-          if (liRect.top < tocRect.top + buffer) {
-            // Link is above visible area
-            const scrollAmount = tocRect.top - liRect.top + buffer;
-            tocNav.scrollTo({ top: tocNav.scrollTop - scrollAmount, behavior: 'smooth' });
-          } else if (liRect.bottom > tocRect.bottom - buffer) {
-            // Link is below visible area
-            const scrollAmount = liRect.bottom - tocRect.bottom + buffer;
-            tocNav.scrollTo({ top: tocNav.scrollTop + scrollAmount, behavior: 'smooth' });
-          }
-        }
-      }
-
-      window.addEventListener('scroll', function() {
-        updateProgress();
-        updateActiveHeading();
+      tocNav.addEventListener('touchstart', function() {
+        tocUserInteracting = true;
+        clearTimeout(tocInteractionTimeout);
       }, { passive: true });
 
+      tocNav.addEventListener('touchend', function() {
+        tocInteractionTimeout = setTimeout(() => {
+          tocUserInteracting = false;
+        }, 1000);
+      }, { passive: true });
+    }
+
+    function updateActiveHeading() {
+      const scrollPos = window.scrollY + 100;
+      let currentId = headingsList[0]?.id;
+
+      for (const { id, element } of headingsList) {
+        if (element.offsetTop <= scrollPos) {
+          currentId = id;
+        }
+      }
+
+      const tocLinks = document.querySelectorAll('#toc a');
+      let activeLink = null;
+
+      tocLinks.forEach(a => {
+        const isActive = a.getAttribute('href') === '#' + currentId;
+        a.classList.toggle('active', isActive);
+        if (isActive) activeLink = a;
+      });
+
+      // Auto-scroll TOC to keep active item visible (unless user is interacting with TOC)
+      if (activeLink && tocNav && !tocUserInteracting) {
+        const li = activeLink.parentElement;
+        const liRect = li.getBoundingClientRect();
+        const tocRect = tocNav.getBoundingClientRect();
+
+        // Check if link is outside visible area of TOC
+        const buffer = 30;
+        if (liRect.top < tocRect.top + buffer) {
+          // Link is above visible area
+          const scrollAmount = tocRect.top - liRect.top + buffer;
+          tocNav.scrollTo({ top: tocNav.scrollTop - scrollAmount, behavior: 'smooth' });
+        } else if (liRect.bottom > tocRect.bottom - buffer) {
+          // Link is below visible area
+          const scrollAmount = liRect.bottom - tocRect.bottom + buffer;
+          tocNav.scrollTo({ top: tocNav.scrollTop + scrollAmount, behavior: 'smooth' });
+        }
+      }
+    }
+
+    window.addEventListener('scroll', function() {
       updateProgress();
       updateActiveHeading();
+    }, { passive: true });
 
-      // Highlight heading when TOC link is clicked
-      document.querySelectorAll('#toc a').forEach(link => {
-        link.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href').slice(1);
-          const targetHeading = document.getElementById(targetId);
-          if (targetHeading) {
-            targetHeading.classList.add('heading-highlight');
-            setTimeout(() => {
-              targetHeading.classList.remove('heading-highlight');
-            }, 1500);
-          }
-        });
+    updateProgress();
+    updateActiveHeading();
+
+    // Highlight heading when TOC link is clicked
+    document.querySelectorAll('#toc a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const targetHeading = document.getElementById(targetId);
+        if (targetHeading) {
+          targetHeading.classList.add('heading-highlight');
+          setTimeout(() => {
+            targetHeading.classList.remove('heading-highlight');
+          }, 1500);
+        }
       });
     });
-  </script>
-</body>
-</html>
+  });
+</script>
