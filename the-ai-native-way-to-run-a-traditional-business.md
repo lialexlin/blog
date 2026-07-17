@@ -101,3 +101,5 @@ Boiling the whole org is where these projects die. Sequence:
 ## Proof point
 
 I run my own work on exactly this architecture: an organization layer of files + structured data, org/department/personal context in layered instruction files, procedures captured as skills an agent executes, work captured as exhaust. One person today; the architecture is the same at fifty.
+
+How to install it: [The AI-Native Playbook]({{ 'the-ai-native-playbook' | relative_url }}).
