@@ -25,7 +25,9 @@ A minimalist personal blog built with Jekyll, deployed to GitHub Pages at `https
    date: YYYY-MM-DD
    ---
    ```
-3. Add entry to `index.html` manually
+3. Do NOT edit `index.html` — it auto-generates all listings, counts, and the hero stat from page frontmatter. Optional flags: `wip: true` lists the article under "Work in progress"; `index: false` excludes it entirely (e.g. the about page).
+
+Publishing a note from the Obsidian vault? Use the `blog-publish` skill — it handles wiki-link conversion, vault syntax stripping, build verification, and article-only commits.
 
 ## Markdown Formatting Notes
 
