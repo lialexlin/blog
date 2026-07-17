@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why Invest in AI Apps Now
-date: 2025-01-03
+date: 2026-01-03
 ---
 
 Someone asked me: why invest in AI apps? We've seen so many money-losing internet apps struggle to break even because margins were so low. Isn't investing in AI apps repeating these mistakes? The only way out seems to be getting lucky and exiting before these apps actually show profitability. 

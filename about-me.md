@@ -1,5 +1,6 @@
 ---
 layout: post
+index: false
 title: About Me
 date: 2025-12-16
 hide_toc: true

@@ -2,109 +2,52 @@
 layout: default
 title: Li (Alex) Lin
 ---
+{% assign en_posts = site.pages | where: "layout", "post" | where_exp: "p", "p.lang != 'zh'" | where_exp: "p", "p.index != false" %}
+{% assign wip_posts = en_posts | where: "wip", true | sort: "date" | reverse %}
+{% assign published_posts = en_posts | where_exp: "p", "p.wip != true" | sort: "date" | reverse %}
 <section class="hero">
   <div class="hero__eyebrow">Personal · Writing</div>
   <h1>Li (Alex) Lin</h1>
   <p class="hero__dek">Playing the lifetime game of compounding judgement, systems and trust - to create value in service of others.</p>
   <a href="{{ 'about-me' | relative_url }}" class="hero__link">More about me →</a>
   <div class="hero__stats">
-    <div class="ll-stat"><span class="ll-stat__value">11</span><span class="ll-stat__label">Posts</span></div>
+    <div class="ll-stat"><span class="ll-stat__value">{{ published_posts | size }}</span><span class="ll-stat__label">Posts</span></div>
     <div class="ll-stat"><span class="ll-stat__value">2</span><span class="ll-stat__label">Languages</span></div>
     <div class="ll-stat"><span class="ll-stat__value">2025</span><span class="ll-stat__label">Writing since</span></div>
   </div>
 </section>
 
+{% if wip_posts.size > 0 %}
 <section class="article-section">
   <div class="section-head">
     <h2><span class="pulse-dot"></span>Work in progress</h2>
   </div>
   <ul class="article-list">
+    {% for post in wip_posts %}
     <li class="article-item">
-      <a href="{{ 'ai-software-questions' | relative_url }}">
-        <div class="article-title">AI Software Questions</div>
-        <div class="article-date">Updated Dec 24</div>
+      <a href="{{ post.url | relative_url }}">
+        <div class="article-title">{{ post.title }}</div>
+        <div class="article-date">Updated {{ post.date | date: "%b %-d" }}</div>
       </a>
     </li>
+    {% endfor %}
   </ul>
 </section>
+{% endif %}
 
 <section class="article-section">
   <div class="section-head">
     <h2>Published</h2>
-    <span class="count">12 posts</span>
+    <span class="count">{{ published_posts | size }} posts</span>
   </div>
   <ul class="article-list">
+    {% for post in published_posts %}
     <li class="article-item">
-      <a href="{{ 'the-ai-native-playbook' | relative_url }}">
-        <div class="article-title">The AI-Native Playbook</div>
-        <div class="article-date">Jul 17, 2026</div>
+      <a href="{{ post.url | relative_url }}">
+        <div class="article-title">{{ post.title }}</div>
+        <div class="article-date">{{ post.date | date: "%b %-d, %Y" }}</div>
       </a>
     </li>
-    <li class="article-item">
-      <a href="{{ 'the-ai-native-way-to-run-a-traditional-business' | relative_url }}">
-        <div class="article-title">The AI-Native Way to Run a Traditional Business</div>
-        <div class="article-date">Jul 16, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'identity-is-the-last-moat-in-the-ai-age' | relative_url }}">
-        <div class="article-title">Identity Is the Last Moat in the AI Age</div>
-        <div class="article-date">Mar 18, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'your-obsidian-vault-doesnt-need-better-prompts-it-needs-schema' | relative_url }}">
-        <div class="article-title">Your Obsidian Vault Doesn't Need Better Prompts. It Needs Schema</div>
-        <div class="article-date">Mar 14, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'you-really-do-become-what-you-think' | relative_url }}">
-        <div class="article-title">You Really Do Become What You Think</div>
-        <div class="article-date">Mar 11, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'emotions-are-not-problems-theyre-signals' | relative_url }}">
-        <div class="article-title">Emotions Are Not Problems, They're Signals</div>
-        <div class="article-date">Mar 11, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'pursue-freedom-from-over-freedom-to' | relative_url }}">
-        <div class="article-title">Pursue "Freedom From" Over "Freedom To"</div>
-        <div class="article-date">Mar 11, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'understanding-who-you-are' | relative_url }}">
-        <div class="article-title">Understanding Who You Are</div>
-        <div class="article-date">Jan 14, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'why-invest-in-ai-apps-now' | relative_url }}">
-        <div class="article-title">Why Invest in AI Apps Now</div>
-        <div class="article-date">Jan 3, 2026</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'book-of-the-year-the-almanack-of-naval-ravikant' | relative_url }}">
-        <div class="article-title">Book of the Year - The Almanack of Naval Ravikant</div>
-        <div class="article-date">Dec 16, 2025</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'what-crypto-taught-me' | relative_url }}">
-        <div class="article-title">What Crypto Taught Me</div>
-        <div class="article-date">Dec 14, 2025</div>
-      </a>
-    </li>
-    <li class="article-item">
-      <a href="{{ 'claude-code-and-the-end-of-UI' | relative_url }}">
-        <div class="article-title">Claude Code and the End of UI</div>
-        <div class="article-date">Nov 15, 2025</div>
-      </a>
-    </li>
+    {% endfor %}
   </ul>
 </section>

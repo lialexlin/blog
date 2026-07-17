@@ -1,5 +1,6 @@
 ---
 layout: post
+wip: true
 title: AI Software Questions
 date: 2025-12-24
 ---
