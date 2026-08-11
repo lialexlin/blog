@@ -29,7 +29,6 @@
       <nav class="site-nav__links">
         <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Writing</a>
         <a href="{{ 'about-me' | relative_url }}"{% if page.url contains 'about-me' %} class="active"{% endif %}>About</a>
-        <a href="{{ '/zh/' | relative_url }}" class="lang-toggle">中文</a>
       </nav>
       {% endif %}
     </div>

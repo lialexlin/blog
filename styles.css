@@ -325,6 +325,20 @@ article {
   padding-top: 64px;
 }
 
+.post-back {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: var(--ls-wide);
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 32px;
+}
+
+.post-back:hover {
+  color: var(--navy-600);
+}
+
 .post-eyebrow {
   font-family: var(--font-mono);
   font-size: 12px;

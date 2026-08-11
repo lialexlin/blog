@@ -12,6 +12,7 @@ layout: default
 <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top"></button>
 
 <article>
+  <a href="{% if page.lang == 'zh' %}{{ '/zh/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="post-back">&larr; {% if page.lang == 'zh' %}所有文章{% else %}All posts{% endif %}</a>
   {% unless page.hide_date %}<div class="post-eyebrow">{{ page.date | date: "%b %-d, %Y" }}</div>{% endunless %}
   <h1>{{ page.title }}</h1>
   <div class="article-content">
