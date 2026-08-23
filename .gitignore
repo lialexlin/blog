@@ -23,8 +23,10 @@ vendor/
 # Local env
 .env
 
-# Claude Code (local settings)
-.claude/
+# Claude Code: local-only, except committed skills
+.claude/*
+!.claude/skills/
+!.claude/skills/**
 
 # Local preview scripts (platform-specific)
 serve.command
@@ -32,4 +34,3 @@ serve.bat
 
 # Obsidian (machine-specific, not content)
 .obsidian/workspace.json
-.claude/settings.local.json
