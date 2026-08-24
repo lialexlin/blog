@@ -1,3 +1,9 @@
 title: Writings
 baseurl: /blog
 permalink: /:slug
+
+exclude:
+  - CLAUDE.md
+  - AGENTS.md
+  - .claude/
+  - README.md
