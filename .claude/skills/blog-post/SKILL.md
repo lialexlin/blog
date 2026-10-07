@@ -19,7 +19,7 @@ date: YYYY-MM-DD
 
 Optional: `wip: true` files it under Work in progress, `index: false` keeps it off every listing, `hide_toc: true` drops the table of contents. Nothing else needs touching — `index.html` builds the listings, counts and hero stat from frontmatter.
 
-Chinese version: same filename under `zh/`, plus `lang: zh`.
+Chinese version: same filename under `zh/`, plus `lang: zh`. It is a rewrite for a Taiwanese reader, not a translation: native Taiwanese register, never Simplified characters, translated calques or Mainland corporate jargon, because Alex hears translationese at once and it reads as AI. Full-width punctuation, with half-width kept for clock times, code, inline English and YAML; —— rarely, since a peppered draft reads as AI-written. AI terms of art stay in plain English inside the Chinese; Alex's own coined series terms get one bilingual first mention, as in 人設工程（identity engineering）.
 
 ## Publishing from the Obsidian vault
 
