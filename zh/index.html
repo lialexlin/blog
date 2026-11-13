@@ -4,7 +4,7 @@ title: 林立 (Alex Lin)
 lang: zh
 permalink: /zh/
 ---
-{% assign zh_posts = site.pages | where: "layout", "post" | where: "lang", "zh" | where_exp: "p", "p.index != false" | sort: "date" | reverse %}
+{% assign zh_posts = site.pages | where: "layout", "post" | where: "lang", "zh" | where_exp: "p", "p.index != false" | where_exp: "p", "p.wip != true" | sort: "date" | reverse %}
 <section class="hero">
   <div class="hero__eyebrow">Personal · Writing</div>
   <h1>林立 (Alex Lin)</h1>
