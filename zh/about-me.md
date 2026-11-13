@@ -1,5 +1,6 @@
 ---
 layout: post
+index: false
 title: 關於我
 lang: zh
 date: 2025-12-16
