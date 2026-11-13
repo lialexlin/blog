@@ -1,9 +1,13 @@
 title: Writings
 baseurl: /blog
 permalink: /:slug
+liquid:
+  strict_filters: true
 
 exclude:
   - CLAUDE.md
   - AGENTS.md
   - .claude/
   - README.md
+  - Gemfile
+  - Gemfile.lock

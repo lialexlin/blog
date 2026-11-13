@@ -2,7 +2,7 @@
 layout: post
 title: 為什麼現在要投資 AI 應用？
 lang: zh
-date: 2025-01-03
+date: 2026-01-03
 permalink: /zh/why-invest-in-ai-apps-now
 ---
 
