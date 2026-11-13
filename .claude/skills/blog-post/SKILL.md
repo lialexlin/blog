@@ -19,7 +19,7 @@ date: YYYY-MM-DD
 
 Optional: `wip: true` files it under Work in progress, `index: false` keeps it off every listing, `hide_toc: true` drops the table of contents. Nothing else needs touching — `index.html` builds the listings, counts and hero stat from frontmatter.
 
-Chinese version: same filename under `zh/`, plus `lang: zh`. It is a rewrite for a Taiwanese reader, not a translation: native Taiwanese register, never Simplified characters, translated calques or Mainland corporate jargon, because Alex hears translationese at once and it reads as AI. Full-width punctuation, with half-width kept for clock times, code, inline English and YAML; —— rarely, since a peppered draft reads as AI-written. AI terms of art stay in plain English inside the Chinese; Alex's own coined series terms get one bilingual first mention, as in 人設工程（identity engineering）.
+Chinese version: same filename under `zh/`, plus `lang: zh`, and the same `date` as the English post; `zh/index.html` lists it from that frontmatter. It is a rewrite for a Taiwanese reader, not a translation: native Taiwanese register, never Simplified characters, translated calques or Mainland corporate jargon, because Alex hears translationese at once and it reads as AI. Full-width punctuation, with half-width kept for clock times, code, inline English and YAML; —— rarely, since a peppered draft reads as AI-written. AI terms of art stay in plain English inside the Chinese; Alex's own coined series terms get one bilingual first mention, as in 人設工程（identity engineering）.
 
 ## Publishing from the Obsidian vault
 
@@ -33,6 +33,6 @@ Vault syntax does not survive Jekyll. Convert `[[wiki links]]` to `[text]({{ 'sl
 
 ## Preview
 
-`bundle exec jekyll serve` (first time on a machine: `bundle install`, with Ruby 3.x from Homebrew rather than the macOS system Ruby). Live-reloads at port 4000. `python3 -m http.server 8000` serves the raw files with no Jekyll processing, which is enough for a CSS check and nothing else.
+`bundle exec jekyll serve` (first time on a machine: `bundle install`, with Homebrew Ruby on macOS rather than the system Ruby, RubyInstaller with DevKit on Windows). Live-reloads at port 4000. `$(command -v python || command -v python3) -m http.server 8000` serves the raw files with no Jekyll processing, which is enough for a CSS check and nothing else.
 
-Push to `main` deploys. There is no staging site, so a broken layout is live until the next push.
+Push to `main` deploys. There is no staging site, so a broken layout is live until the next push. Preview runs Jekyll 4 while Pages builds with Jekyll 3, so ship through a PR: its `Pages build` check runs the production engine.

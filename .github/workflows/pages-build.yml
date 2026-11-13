@@ -1,0 +1,24 @@
+# Builds the site with GitHub Pages' own engine on every PR, so a change that
+# breaks the live build fails here instead of on main. Build only, no deploy.
+# Retire when Pages switches to an Actions deploy that builds the PR the same way.
+name: Pages build
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Check output
+        run: |
+          test -f _site/index.html
+          test -f _site/zh/index.html
+          for f in Gemfile Gemfile.lock CLAUDE.md AGENTS.md; do
+            if [ -e "_site/$f" ]; then echo "[ERROR] $f is published"; exit 1; fi
+          done
