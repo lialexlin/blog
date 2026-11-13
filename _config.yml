@@ -7,3 +7,5 @@ exclude:
   - AGENTS.md
   - .claude/
   - README.md
+  - Gemfile
+  - Gemfile.lock
