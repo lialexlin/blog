@@ -33,6 +33,6 @@ Vault syntax does not survive Jekyll. Convert `[[wiki links]]` to `[text]({{ 'sl
 
 ## Preview
 
-`bundle exec jekyll serve` (first time on a machine: `bundle install`, with Homebrew Ruby on macOS rather than the system Ruby, RubyInstaller with DevKit on Windows). Live-reloads at port 4000. `$(command -v python || command -v python3) -m http.server 8000` serves the raw files with no Jekyll processing, which is enough for a CSS check and nothing else.
+`bundle exec jekyll serve` (first time on a machine: `bundle install`, with Homebrew Ruby on macOS rather than the system Ruby, RubyInstaller with DevKit on Windows). Serves at port 4000 and rebuilds on save; refresh the browser to see the change. `$(command -v python || command -v python3) -m http.server 8000` serves the raw files with no Jekyll processing, which is enough for a CSS check and nothing else.
 
 Push to `main` deploys. There is no staging site, so a broken layout is live until the next push. Preview runs Jekyll 4 while Pages builds with Jekyll 3, so ship through a PR: its `Pages build` check runs the production engine.
